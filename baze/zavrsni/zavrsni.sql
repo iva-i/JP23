@@ -59,6 +59,3 @@ alter table kupnja add foreign key (kupac) references velkupac(sifra);
 
 alter table racun add foreign key (proizvod) references proizvod(sifra);
 alter table racun add foreign key (kupnja) references kupnja(sifra);
-
-
-
