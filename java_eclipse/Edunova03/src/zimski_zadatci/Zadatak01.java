@@ -10,7 +10,7 @@ public class Zadatak01 {
 
 		System.out.println("Unesi 24 broja: ");
 
-		int niz[] = new int[4];
+		int niz[] = new int[24];
 
 		int zbroj = 0;
 
