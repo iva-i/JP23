@@ -1,0 +1,11 @@
+package Zadatci;
+
+public class Zadatak01 {
+	public static void main(String[] args) {
+		
+		for(int i=20; i<201; i++) {
+			System.out.println(i);
+		}
+		
+	}
+}

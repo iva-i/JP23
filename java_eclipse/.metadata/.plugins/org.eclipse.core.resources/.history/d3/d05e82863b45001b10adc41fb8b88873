@@ -1,0 +1,15 @@
+package edunova.zadaci;
+
+import javax.swing.JOptionPane;
+
+public class Zadatak7 {
+
+	public static void main(String[] args) {
+		//Program unosi 3 znaka. 
+		//Program ispisuje OK ako je niz od tri unesena znaka palindorm.
+		
+		
+
+	}
+
+}

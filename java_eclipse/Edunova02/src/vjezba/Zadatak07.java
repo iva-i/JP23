@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 public class Zadatak07 {
 
 	public static void main(String[] args) {
+		
 		//korisnik unosi decimalni broj
 		//program ispisuje samo cijeli dio broja
 				

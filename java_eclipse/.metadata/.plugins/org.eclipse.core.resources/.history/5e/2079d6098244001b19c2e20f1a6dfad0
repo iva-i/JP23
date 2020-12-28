@@ -1,0 +1,42 @@
+package vjezba;
+
+import javax.swing.JOptionPane;
+
+public class Zadatak09 {
+	public static void main(String[] args) {
+		
+		//korisnik unosi koordinate od tri točke
+		//. Napiši program koji određuje površinu trokuta
+			
+		
+		String aa=JOptionPane.showInputDialog("Unesi x koordinatu: ");
+		String bb=JOptionPane.showInputDialog("Unesi y koordinatu: ");
+		String cc=JOptionPane.showInputDialog("Unesi x koordinatu: ");
+		String dd=JOptionPane.showInputDialog("Unesi y koordinatu: ");
+		String ee=JOptionPane.showInputDialog("Unesi x koordinatu: ");
+		String ff=JOptionPane.showInputDialog("Unesi y koordinatu: ");
+	
+	
+		
+		double x1=Double.parseDouble(aa);
+		float y1=Float.parseFloat(bb);
+		double x2=Double.parseDouble(cc);
+		float y2=Float.parseFloat(dd);
+		float x3=Float.parseFloat(ee);
+		float y3=Float.parseFloat(ff);
+		
+		double a=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));	
+		double b=Math.sqrt((x3-x1)*(x3-x1)+(y3-y1)*(y3-y1));
+		double c=Math.sqrt((x2-x3)*(x2-x3)+(y2-y3)*(y2-y3));
+		
+		
+		double s=(a+b+c)/2;
+		
+		double pov=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+		
+		System.out.println(pov);
+		
+		
+			
+		}
+}

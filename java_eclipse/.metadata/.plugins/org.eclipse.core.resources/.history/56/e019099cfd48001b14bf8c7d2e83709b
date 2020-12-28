@@ -1,0 +1,23 @@
+package zimski_zadatci;
+
+public class Zadatak01 {
+
+	public static void main(String[] args) {
+		// Kreirati program koji unosi 24 broja, ispisuje njihov zbroj, najmanji i  najveći uneseni broj.
+		
+		java.util.Scanner ulaz = new java.util.Scanner(System.in);
+		
+		System.out.println("Unesi 24 broja: ");
+		
+		float a=ulaz.nextFloat();
+		float b=ulaz.nextFloat();
+		float c=ulaz.nextFloat();
+		float d=ulaz.nextFloat();
+		
+		System.out.println(a+b+c+d);
+		
+		
+
+	}
+
+}

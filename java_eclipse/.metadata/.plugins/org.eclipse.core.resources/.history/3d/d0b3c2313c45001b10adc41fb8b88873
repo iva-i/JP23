@@ -1,0 +1,17 @@
+package edunova;
+
+import java.util.Scanner;
+
+public class UlazPodatakaScanner {
+
+	public static void main(String[] args) {
+		
+		Scanner ulaz = new Scanner(System.in);
+		
+		int i =ulaz.nextInt();
+		
+		System.out.println(i);
+
+	}
+
+}
