@@ -9,7 +9,7 @@ public class Zadatak04 {
 
 		java.util.Scanner ulaz = new java.util.Scanner(System.in);
 
-		int broj = 2;
+		int broj = 4;
 
 		System.out.println("Unesi vrijednosti u prvu matricu: ");
 
