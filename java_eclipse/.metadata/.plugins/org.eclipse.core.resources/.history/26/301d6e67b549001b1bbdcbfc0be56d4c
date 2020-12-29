@@ -1,0 +1,42 @@
+package zimski_zadatci;
+
+import java.util.Arrays;
+
+public class proba {
+
+	public static void main(String[] args) {
+
+		int broj = 2, a = 2;
+
+//		while (broj >= 0) {
+//			System.out.println("ok");
+//			broj -= a;
+//		}
+
+		int stupac = 4, redak = 3;
+
+		int[][] m = new int[redak][stupac];
+
+//		for(int i=redak-1; i<=redak-1;i++) {
+//			for(int j=0; j< stupac; j++) {
+//				m[i][j]=broj;
+//			}
+//			
+//		}
+		
+		int brojac=stupac-1;
+		
+		do {
+			for(int i=redak-1; i<=redak-1;i++) {
+				for(int j=0; j< stupac; j++) {
+					m[i][j]=broj;
+					brojac--;
+				}
+			}			
+		}while(brojac>=0);
+
+		System.out.print(Arrays.deepToString(m));
+
+	}
+
+}

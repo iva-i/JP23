@@ -1,0 +1,19 @@
+package zimski_zadatci;
+
+public class Zadatak05 {
+
+	public static void main(String[] args) {
+		// Kreirati program koji ispisuje cikličnu matricu - ulaz
+		// su dva cijela broja
+
+		int stupac = 4, redak = 2;
+
+		int[][] m = new int[redak][stupac];
+
+		while (stupac >= 0 && redak >= 0) {
+			
+		}
+
+	}
+
+}

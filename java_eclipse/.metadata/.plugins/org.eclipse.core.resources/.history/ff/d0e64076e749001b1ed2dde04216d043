@@ -1,0 +1,10 @@
+package projecteuler;
+
+public class Zadatak02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,46 @@
+package zimski_zadatci;
+
+import java.util.Arrays;
+
+public class Zadatak05 {
+
+	public static void main(String[] args) {
+		// Kreirati program koji ispisuje cikličnu matricu - ulaz
+		// su dva cijela broja
+
+		int stupac = 4, redak = 2;
+
+		int[][] m = new int[redak][stupac];
+		
+		int redakM=redak-1, stupacM=stupac-1;
+		int redakm=0, stupacm=0;
+		int broj=redak*stupac;
+
+		while (redakM >= 0 && stupacM >= 0 ) {
+			
+			//(redak) desni kut->lijevi kut + 1
+			for(int i=stupacM; i>stupacm; i--) {
+				m[redakM][i]=broj;
+				broj=broj-1;
+			}
+			System.out.print(Arrays.deepToString(m));
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		 
+		 
+		}
+		
+	
+		
+		
+		
+	}
+
+

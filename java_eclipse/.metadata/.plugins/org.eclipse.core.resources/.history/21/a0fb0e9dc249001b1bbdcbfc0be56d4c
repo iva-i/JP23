@@ -1,0 +1,86 @@
+package zimski_zadatci;
+
+import java.util.Arrays;
+
+public class proba {
+
+	public static void main(String[] args) {
+
+		int broj = 2, a = 2;
+
+//		while (broj >= 0) {
+//			System.out.println("ok");
+//			broj -= a;
+//		}
+
+		int stupac = 4, redak = 3;
+
+		int[][] m = new int[redak][stupac];
+
+//		for(int i=redak-1; i<=redak-1;i++) {
+//			for(int j=0; j< stupac; j++) {
+//				m[i][j]=broj;
+//			}
+//			
+//		}
+		
+//		int brojac=stupac-1;
+//		
+//		do {
+//			for(int i=redak-1; i<=redak-1;i++) {
+//				for(int j=0; j< stupac; j++) {
+//					m[i][j]=broj;
+//					brojac--;
+//				}
+//			}			
+//		}while(brojac>=0);
+		
+		int brojac=1;
+		int pomoc=1;
+		
+		if(brojac==1 || brojac==5) {
+			for(int i=redak-1; i>=redak-1; i--) {
+				for(int j=stupac-1; j>=pomoc; j--) {
+					m[i][j]=broj;
+				}
+			}
+		}
+		
+		brojac=brojac+1;
+		
+		if(brojac==2 || brojac==6) {
+			for(int i=redak-1; i>=pomoc; i--) {
+				for(int j=0; j>=0; j--) {
+					m[i][j]=broj+1;
+				}
+			}
+		}
+		
+		brojac=brojac+1;
+		
+		if(brojac==3 || brojac==7) {
+			for(int i=0; i>=0; i--) {
+				for(int j=0; j<=stupac-2; j++) {
+					m[i][j]=broj+2;
+				}
+			}
+		}
+		
+		brojac=brojac+1;
+		
+		if(brojac==4 || brojac==8) {
+			for(int i=0; i<=redak-2; i++) {
+				for(int j=stupac-1; j>=stupac-1; j--) {
+					m[i][j]=broj+3;
+				}
+			}
+		}
+		
+		brojac=brojac+1;
+		
+
+		System.out.print(Arrays.deepToString(m));
+
+	}
+
+}

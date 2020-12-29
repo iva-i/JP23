@@ -1,0 +1,43 @@
+package zimski_zadatci;
+
+import java.util.Arrays;
+
+public class Zadatak04 {
+
+	public static void main(String[] args) {
+		// Kreirati program koji unosi dvije matrice 4x4 te ispisuje njihov zbroj
+
+		java.util.Scanner ulaz = new java.util.Scanner(System.in);
+
+		System.out.println("Unesi vrijednosti u prvu matricu: ");
+
+		int m1[][] = new int[2][2];
+
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				m1[i][j] = ulaz.nextInt();
+			}
+
+		}
+		
+//		System.out.println("Unesi vrijednosti u drugu matricu: ");
+//
+//		int m2[][] = new int[2][2];
+//
+//		for (int i = 0; i < 2; i++) {
+//			for (int j = 0; j < 2; j++) {
+//				m2[i][j] = ulaz.nextInt();
+//			}
+//
+//		}
+		
+		
+		
+		
+		
+		
+		System.out.println(Arrays.toString(m1));
+
+	}
+
+}
