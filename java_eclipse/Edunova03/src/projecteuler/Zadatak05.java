@@ -9,10 +9,10 @@ public class Zadatak05 {
 		// numbers from 1 to 20?
 
 		long broj = 21;
+		
 		while (1 == 1) {
 			boolean djeljiv = true;
 			for (int i = 1; i < 21; i++) {
-				djeljiv = true;
 				if (broj % i != 0) {
 					djeljiv = false;
 					break;
