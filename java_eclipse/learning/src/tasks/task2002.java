@@ -3,7 +3,7 @@ package tasks;
 import java.util.Scanner;
 import java.lang.Math; 
 
-public class task2002 {
+public class Task2002 {
 	public static void main(String[] args) {
 		// (Compute the volume of a triangular prism) Write a program that reads in the
 		// length of

@@ -2,7 +2,7 @@ package tasks;
 
 import java.util.Scanner;
 
-public class task2001 {
+public class Task2001 {
 
 	public static void main(String[] args) {
 		// (Convert mile to kilometer) Write a program that reads a mile in a double
