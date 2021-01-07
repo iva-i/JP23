@@ -17,59 +17,84 @@ public class Zadatak05 {
 			redak = ulaz.nextInt();
 		} while (redak <= 0);
 
-		
 		do {
-		System.out.println("Unesi broj stupaca: ");
+			System.out.println("Unesi broj stupaca: ");
 
-		stupac = ulaz.nextInt();
-		}while(stupac<=0);
+			stupac = ulaz.nextInt();
+		} while (stupac <= 0);
+		
+		ulaz.close();
 
-		int pocredak = 0, pocstupac = 0, zadredak = redak - 1, zadstupac = stupac - 1, broj = 1;
+		int pocRedak = 0, pocStupac = 0, zadRedak = redak - 1, zadStupac = stupac - 1, broj = 1;
 
 		int[][] matrica = new int[redak][stupac];
-		
-		//unos vrijednosti u matricu (iznimka rješena pomoću if-a - linija 61)
+
+		// unos vrijednosti u matricu (iznimka rješena pomoću if-a - linija 61)
 		while (broj < redak * stupac) {
 
 			// (redak) desno -> lijevo
-			for (int i = zadstupac; i > pocstupac; i--) {
-				matrica[zadredak][i] = broj++;
+			for (int i = zadStupac; i >= pocStupac; i--) {
+				matrica[zadRedak][i] = broj++;
+			}
+			
+			zadRedak--;
+			
+			//ako je svaki element matrice popunjen 
+			//(ako je zadnji element koji je upisan >= redak*stupac) program staje
+			if(provjera(matrica,broj)) {
+				break;
 			}
 
 			// (stupac) dolje -> gore
-			for (int i = zadredak; i > pocredak; i--) {
-				matrica[i][pocstupac] = broj++;
+			for (int i = zadRedak; i >= pocRedak; i--) {
+				matrica[i][pocStupac] = broj++;
+			}
+			
+			pocStupac++;
+			
+			if(provjera(matrica,broj)) {
+				break;
 			}
 
 			// (redak) lijevo -> desno
-			for (int i = pocstupac; i < zadstupac; i++) {
-				matrica[pocredak][i] = broj++;
+			for (int i = pocStupac; i <= zadStupac; i++) {
+				matrica[pocRedak][i] = broj++;
+			}
+			
+			pocRedak++;
+			
+			if(provjera(matrica,broj)) {
+				break;
 			}
 
 			// (stupac) gore -> dolje
-			for (int i = pocredak; i < zadredak; i++) {
-				matrica[i][zadstupac] = broj++;
+			for (int i = pocRedak; i <= zadRedak; i++) {
+				matrica[i][zadStupac] = broj++;
 			}
-
-			zadstupac--;
-			zadredak--;
-			pocstupac++;
-			pocredak++;
 			
+			zadStupac--;
+			
+			if(provjera(matrica,broj)) {
+				break;
+			}
 		}
-		
-		//u slučaju kvadratne matrice neparnog reda da ispuni "zadnje" polje
-		if(redak % 2 !=0 && stupac % 2 != 0) {
-			matrica[redak/2][stupac/2]=redak*stupac;
+
+		// u slučaju kvadratne matrice neparnog reda da ispuni "zadnje" polje
+		if (redak == stupac && redak % 2 != 0) {
+			matrica[redak / 2][stupac / 2] = redak * stupac;
 		}
-		
-		//ispis matrice
+
+		// ispis matrice
 		System.out.println("Matrica je dana s: ");
-		for (int i = 0; i < redak; i++) {
+		for (int i = 0; i < redak; i++) { 
 			for (int j = 0; j < stupac; j++) {
 				System.out.print(matrica[i][j] + "\t");
 			}
 			System.out.println();
 		}
+	}
+	
+	static boolean provjera(int[][] niz2d, int br) {
+		return br >= niz2d.length * niz2d[0].length;
 	}
 }
