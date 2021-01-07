@@ -5,23 +5,31 @@ import java.util.Scanner;
 public class Zadatak05 {
 //
 	public static void main(String[] args) {
-		// ciklicka matrica (ne radi u slučaju kvadratne matrice neparnog reda?!)
+		// ciklicka matrica
+
+		Scanner ulaz = new Scanner(System.in);
+
+		int redak = -1, stupac = -1;
+
+		do {
+			System.out.println("Unesi broj redaka: ");
+
+			redak = ulaz.nextInt();
+		} while (redak <= 0);
+
 		
-		Scanner ulaz=new Scanner(System.in);
-		
-		System.out.println("Unesi broj redaka: ");
-		
-		int redak = ulaz.nextInt();
-		
+		do {
 		System.out.println("Unesi broj stupaca: ");
-		
-		int stupac = ulaz.nextInt();
+
+		stupac = ulaz.nextInt();
+		}while(stupac<=0);
 
 		int pocredak = 0, pocstupac = 0, zadredak = redak - 1, zadstupac = stupac - 1, broj = 1;
 
 		int[][] matrica = new int[redak][stupac];
-
-		while (broj <= redak * stupac) {
+		
+		//unos vrijednosti u matricu (iznimka rješena pomoću if-a - linija 61)
+		while (broj < redak * stupac) {
 
 			// (redak) desno -> lijevo
 			for (int i = zadstupac; i > pocstupac; i--) {
@@ -47,8 +55,16 @@ public class Zadatak05 {
 			zadredak--;
 			pocstupac++;
 			pocredak++;
+			
 		}
-
+		
+		//u slučaju kvadratne matrice neparnog reda da ispuni "zadnje" polje
+		if(redak % 2 !=0 && stupac % 2 != 0) {
+			matrica[redak/2][stupac/2]=redak*stupac;
+		}
+		
+		//ispis matrice
+		System.out.println("Matrica je dana s: ");
 		for (int i = 0; i < redak; i++) {
 			for (int j = 0; j < stupac; j++) {
 				System.out.print(matrica[i][j] + "\t");
