@@ -28,7 +28,7 @@ public class Task3009 {
 
 		if(num / 100000000 == 0) {
 			if(checksum == 10) {
-				System.out.println("0" + num +"X");
+				System.out.println("0" + num +"X"); 
 			}
 			if(checksum<10) {
 				System.out.printf("0%d%d",num,checksum);

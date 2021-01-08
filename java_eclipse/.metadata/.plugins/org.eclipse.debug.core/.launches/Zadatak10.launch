@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/Edunova02/src/vjezba/Zadatak10.java"/>
+        <listEntry value="/Edunova03/src/project_euler/Zadatak10.java"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
     </listAttribute>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="vjezba.Zadatak10"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="Edunova02"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Edunova02"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="project_euler.Zadatak10"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="Edunova03"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Edunova03"/>
 </launchConfiguration>

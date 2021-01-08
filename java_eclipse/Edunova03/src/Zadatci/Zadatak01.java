@@ -1,4 +1,4 @@
-package Zadatci;
+package zadatci;
 
 public class Zadatak01 {
 	public static void main(String[] args) {

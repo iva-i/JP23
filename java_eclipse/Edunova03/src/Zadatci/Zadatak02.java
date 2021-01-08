@@ -1,4 +1,4 @@
-package Zadatci;
+package zadatci;
 
 import java.util.Scanner;
 

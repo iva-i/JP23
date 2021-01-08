@@ -1,11 +1,13 @@
-package Zadatci;
+package zadatci;
 
 import java.util.Scanner;
 
 public class Zadatak03 {
 
 	public static void main(String[] args) {
-
+		
+		//korisnik unosi broj i mjesto znamenke, program ispisuje znamenku na zadanom mjestu
+		
 		Scanner input = new Scanner(System.in);
 
 		double broj=0;
