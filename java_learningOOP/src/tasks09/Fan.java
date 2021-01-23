@@ -1,22 +1,29 @@
-package tasks;
+package tasks09;
 
 class Fan {
-	
+
 	// data fields
 	public static final int SLOW = 1;
 	public static final int MEDIUM = 2;
 	public static final int FAST = 3;
-	private int speed = SLOW;
-	private boolean on = false;
-	private double radius = 5;
-	private String color = "blue";
-	
+	private int speed;
+	private boolean on;
+	private double radius;
+	private String color;
+
 	// no arg constructor
 	public Fan() {
-		super();
+		this(SLOW, false, 5, "blue");
 	}
-	
-	//getters and setters
+
+	public Fan(int speed, boolean on, double radius, String color) {
+		this.speed = speed;
+		this.on = on;
+		this.radius = radius;
+		this.color = color;
+	}
+
+	// getters and setters
 	public int getSpeed() {
 		return speed;
 	}
@@ -48,24 +55,19 @@ class Fan {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
-	//methods
+
+	// methods
 	public String toString() {
-		
+
 		String s = "";
-		
-		if(this.on) {
-			s = "Fan speed is " + this.speed + ", color is " + this.color + ", radius is " + this.radius +".";
-		}else {
+
+		if (this.on) {
+			s = "Fan speed is " + this.speed + ", color is " + this.color + ", radius is " + this.radius + ".";
+		} else {
 			s = "Fan color is " + this.color + ", radius is " + this.radius + ". Fan is off.";
 		}
-		
+
 		return s;
 	}
-	
-	
-	
-	
-	
 
 }

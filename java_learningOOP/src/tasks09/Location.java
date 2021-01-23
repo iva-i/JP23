@@ -1,4 +1,4 @@
-package tasks;
+package tasks09;
 
 class Location {
 
