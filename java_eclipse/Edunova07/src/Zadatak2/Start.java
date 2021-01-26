@@ -1,5 +1,7 @@
 package Zadatak2;
 
+// OVO RJEŠENJE NEMA SMISLA
+
 //Kreirajte paket zadatak2
 //Kreirajte model klasa koji opisuje svijet flore i faune
 //na minimalno 4 razine nasljeđivanja
