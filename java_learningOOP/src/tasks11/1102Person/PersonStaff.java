@@ -7,11 +7,9 @@ public class PersonStaff extends PersonEmployee{
 	private String title;
 
 	public PersonStaff() {
-		super();
 	}
 	
 	public PersonStaff(String title) {
-		super();
 		this.title = title;
 	}
 

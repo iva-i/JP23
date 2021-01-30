@@ -6,7 +6,6 @@ public class PersonFaculty extends PersonEmployee {
 	private int rank;
 	
 	public PersonFaculty() {
-		super();
 	}
 	
 	public PersonFaculty(String name) {
@@ -14,7 +13,6 @@ public class PersonFaculty extends PersonEmployee {
 	}
 	
 	public PersonFaculty(double officeHours, int rank) {
-		super();
 		this.officeHours = officeHours;
 		this.rank = rank;
 	}

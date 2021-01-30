@@ -5,11 +5,9 @@ public abstract class Person {
 	private String name, adress, phoneNumber, email;
 	
 	public Person() {
-		super();
 	}
 
 	public Person(String name) {
-		super();
 		this.name = name;
 	}
 

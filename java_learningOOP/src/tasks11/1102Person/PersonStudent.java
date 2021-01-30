@@ -9,7 +9,6 @@ public class PersonStudent extends Person {
 	private final int SENIOR = 4;
 
 	public PersonStudent() {
-		super();
 	}
 	
 	public PersonStudent(String name) {
@@ -17,7 +16,6 @@ public class PersonStudent extends Person {
 	}
 
 	public PersonStudent(int classStatus) {
-		super();
 		if (classStatus == FRESHMAN || classStatus == SOPHMORE || classStatus == JUNIOR || classStatus == SENIOR) {
 			this.classStatus = classStatus;
 		}else {

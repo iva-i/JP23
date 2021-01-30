@@ -17,6 +17,7 @@ public class PersonTest {
 		System.out.println(personSta.toString());
 		
 		PersonStudent personStu = new PersonStudent("Creed");
+		personStu.setClassStatus(1);
 		
 		System.out.println(personStu.toString());
 	}

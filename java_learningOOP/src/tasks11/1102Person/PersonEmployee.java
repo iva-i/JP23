@@ -9,7 +9,6 @@ public class PersonEmployee extends Person{
 	private Date dateHired;
 	
 	public PersonEmployee() {
-		super();
 	}
 	
 	public PersonEmployee(String name) {
@@ -17,7 +16,6 @@ public class PersonEmployee extends Person{
 	}
 	
 	public PersonEmployee(String office, double salary, Date dateHired) {
-		super();
 		this.office = office;
 		this.salary = salary;
 		this.dateHired = dateHired;
