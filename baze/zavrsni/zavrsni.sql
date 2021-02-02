@@ -7,12 +7,12 @@ create table proizvod(
 	sifra int not null primary key auto_increment,
 	sifraproizvoda varchar(5),
 	naziv varchar(100) not null,
-	proizvodac varchar(50),
 	opis varchar(500),
 	cijena decimal(10,2),
 	mjernajedinica varchar(10),
 	nastanju bool,
-	kolicinanastanju int
+	kolicinanastanju int,
+	proizvodac int
 );
 
 create table djelatnik(
@@ -38,11 +38,19 @@ create table stavka(
 	cijena decimal(10,2)
 );
 
+create table proizvodac(
+	sifra int not null primary key auto_increment,
+	naziv varchar(100) not null,
+	logo varchar(500)
+);
+
 #veze između tablica
 alter table racun add foreign key (djelatnik) references djelatnik(sifra);
 
 alter table stavka add foreign key (proizvod) references proizvod(sifra);
 alter table stavka add foreign key (racun) references racun(sifra);
+
+alter table proizvod add foreign key (proizvodac) references proizvodac(sifra);
 
 #insert u tablice
 select * from proizvod;
@@ -88,3 +96,11 @@ insert into stavka(proizvod,racun,kolicina) values
 	(9,3,1),
 	(11,4,2),
 	(17,5,0.5);
+
+select * from proizvodac;
+insert into proizvodac(naziv) values
+	('Kraš'),
+	('Ferrero'),
+	('Belje'),
+	('Vindija'),
+	('Zbregov');
