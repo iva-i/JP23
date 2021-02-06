@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "540766369968",
+    "project_id": "fir-trgovina",
+    "storage_bucket": "fir-trgovina.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540766369968:android:4c95608ec7eac4b72d6375",
+        "android_client_info": {
+          "package_name": "firebase.trgovina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540766369968-mi2h7h9ns22c1h33c3a06u1p43nhsoe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNf5vfyWfAvcQoe_UdaCRZkZpyx3QjrKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540766369968-mi2h7h9ns22c1h33c3a06u1p43nhsoe5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
