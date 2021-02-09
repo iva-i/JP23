@@ -3,7 +3,7 @@ package trgovina;
 public class Djelatnik {
 
 	private int sifra;
-	private String ime, prezime, jbmag, oib;
+	private String ime, prezime, jbmag, oib, strucnaSprema;
 	
 	
 	//konstrktori
@@ -56,6 +56,14 @@ public class Djelatnik {
 	}
 	public void setOib(String oib) {
 		this.oib = oib;
+	}
+
+	public String getStrucnaSprema() {
+		return strucnaSprema;
+	}
+
+	public void setStrucnaSprema(String strucnaSprema) {
+		this.strucnaSprema = strucnaSprema;
 	}
 	
 	

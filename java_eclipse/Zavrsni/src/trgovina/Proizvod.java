@@ -3,8 +3,9 @@ package trgovina;
 public class Proizvod {
 	
 	private int sifra;
-	private String naziv, proizvodac, opis;
-	private double cijena;
+	private String sifraProizvoda, naziv, proizvodac, opis, mjernaJedinica;
+	private double cijena, kolicinaNaStanju;
+	private boolean naStanju;
 	
 	
 	//konstruktori
@@ -33,9 +34,21 @@ public class Proizvod {
 		this.proizvodac = proizvodac;
 		this.opis = opis;
 		this.cijena = cijena;
+	}	
+	
+	public Proizvod(int sifra, String sifraProizvoda, String naziv, String proizvodac, String opis,
+			String mjernaJedinica, double cijena, double kolicinaNaStanju, boolean naStanju) {
+		this.sifra = sifra;
+		this.sifraProizvoda = sifraProizvoda;
+		this.naziv = naziv;
+		this.proizvodac = proizvodac;
+		this.opis = opis;
+		this.mjernaJedinica = mjernaJedinica;
+		this.cijena = cijena;
+		this.kolicinaNaStanju = kolicinaNaStanju;
+		this.naStanju = naStanju;
 	}
-	
-	
+
 	//getteri i setteri 
 	public int getSifra() {
 		return sifra;
@@ -68,10 +81,35 @@ public class Proizvod {
 		this.cijena = cijena;
 	}
 
+	public String getSifraProizvoda() {
+		return sifraProizvoda;
+	}
 
-	
-	
+	public void setSifraProizvoda(String sifraProizvoda) {
+		this.sifraProizvoda = sifraProizvoda;
+	}
 
-	
+	public String getMjernaJedinica() {
+		return mjernaJedinica;
+	}
 
+	public void setMjernaJedinica(String mjernaJedinica) {
+		this.mjernaJedinica = mjernaJedinica;
+	}
+
+	public double getKolicinaNaStanju() {
+		return kolicinaNaStanju;
+	}
+
+	public void setKolicinaNaStanju(double kolicinaNaStanju) {
+		this.kolicinaNaStanju = kolicinaNaStanju;
+	}
+
+	public boolean isNaStanju() {
+		return naStanju;
+	}
+
+	public void setNaStanju(boolean naStanju) {
+		this.naStanju = naStanju;
+	}
 }

@@ -8,6 +8,7 @@ public class Start {
 
 	private List<Proizvod> proizvodi;
 	private List<Djelatnik> djelatnici;
+	private List<Stavka> stavke;
 
 	private Start() {
 
@@ -56,11 +57,25 @@ public class Start {
 			}
 		}
 	}
+	
+	public static double ucitajDecimalniBroj(String poruka) {
+		double i;
+		while (true) {
+			System.out.print(poruka + ": ");
+			try {
+				i = ulaz.nextDouble();
+				return i;
+			} catch (Exception e) {
+				System.out.println("Neispravan unos!");
+			}
+		}
+	}
 
 	public static String ucitajString(String poruka) {
 		String s;
 		while (true) {
 			System.out.print(poruka + ": ");
+			ulaz.nextLine();
 			s = ulaz.nextLine();
 			if (s.trim().isEmpty()) {
 				System.out.println("Obavezan unos!");
@@ -83,11 +98,56 @@ public class Start {
 		case 2:
 			racunIzbornik();
 			break;
+		case 3:
+			stavkaIzbornik();
+			break;
 		case 5:
 			System.out.println("Doviđenja!");
 			break;
 		}
 
+	}
+
+	private void stavkaIzbornik() {
+		
+		stavkeStavkeIzbornik();
+		
+		switch (odaberiOpciju("Odaberi opciju", 1, 2)) {
+		case 1:
+			dodajStavku();
+			break;
+		case 2:
+			glavniIzbornik();
+			break;
+
+		}
+		
+	}
+
+	
+
+	private void dodajStavku() {
+
+		System.out.println("~~~~~ Dodavanje stavke ~~~~~");
+
+		Stavka s = new Stavka();
+		Proizvod p = new Proizvod(Start.ucitajString("Unesi proizvod"));
+		s.setProizvod(p);
+		s.setKolicina(Start.ucitajDecimalniBroj("Unesi količinu"));
+		s.setCijena(Start.ucitajDecimalniBroj("Unesi cijenu"));		
+
+		stavke.add(s);
+
+		stavkaIzbornik();
+		
+	}
+
+	private void stavkeStavkeIzbornik() {
+		
+		System.out.println("~~~~~ STAVKE ~~~~~ ");
+		System.out.println("1. Dodaj stavku");
+		System.out.println("2. Glavni izbornik");
+		
 	}
 
 	private void stavkeGlavnogIzbornika() {
@@ -131,8 +191,8 @@ public class Start {
 		System.out.println("~~~~~ Dodavanje proizvoda ~~~~~");
 
 		Proizvod p = new Proizvod();
-		p.setNaziv(ucitajString("Unesi naziv proizvoda"));
-		p.setSifra(ucitajCijeliBroj("Unesi sifru proizvoda"));
+		p.setNaziv(Start.ucitajString("Unesi naziv proizvoda"));
+		p.setSifra(Start.ucitajCijeliBroj("Unesi sifru proizvoda"));
 
 		proizvodi.add(p);
 
