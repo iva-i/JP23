@@ -132,7 +132,7 @@ public class Start {
 
 		Stavka s = new Stavka();
 		Proizvod p = new Proizvod(Start.ucitajString("Unesi proizvod"));
-		s.setProizvod(p);
+		s.setProizvod((List<Proizvod>) p);
 		s.setKolicina(Start.ucitajDecimalniBroj("Unesi količinu"));
 		s.setCijena(Start.ucitajDecimalniBroj("Unesi cijenu"));		
 
