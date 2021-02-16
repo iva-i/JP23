@@ -6,15 +6,27 @@ import java.util.Scanner;
 
 public class Start {
 
-	private List<Proizvod> proizvodi;
-	private List<Djelatnik> djelatnici;
-	private List<Stavka> stavke;
+
+	private static List<Proizvod> proizvodi;
+	private static List<Djelatnik> djelatnici;
+	private static List<Stavka> stavke;
+
+	public static List<Proizvod> getProizvodi() {
+		return proizvodi;
+	}
+
+	public static void setProizvodi(List<Proizvod> proizvodi) {
+		Start.proizvodi = proizvodi;
+	}
 
 	private Start() {
 
 		proizvodi = new ArrayList<>();
 
+		IO.IOProizvod.initialize();
+
 		glavniIzbornik();
+
 
 	}
 
@@ -195,7 +207,7 @@ public class Start {
 		p.setSifra(Start.ucitajCijeliBroj("Unesi sifru proizvoda"));
 
 		proizvodi.add(p);
-
+		IO.IOProizvod.spremiProizvode(proizvodi);
 		proizvodiIzbornik();
 
 	}
