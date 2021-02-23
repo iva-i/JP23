@@ -1,0 +1,51 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+        <!-- 
+        Potrebno je ručno kreirati bazu
+        create database zavrsni_hib default character set utf8;
+-->
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mariadb://localhost:3306/zavrsni_hib</property>
+        <property name="connection.username">edunova</property>
+        <property name="connection.password">edunova</property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">5</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MariaDBDialect</property>
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <!--
+        validate: validate the schema, makes no changes to the database.
+        update: update the schema.
+        create: creates the schema, destroying previous data.
+        create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+        none: does nothing with the schema, makes no changes to the database
+        
+        1. puta create-drop, poslije update
+        
+        -->
+        <property name="hbm2ddl.auto">create-drop</property>
+        <!-- dbcp connection pool configuration -->
+        <property name="hibernate.dbcp.initialSize">5</property>
+        <property name="hibernate.dbcp.maxTotal">20</property>
+        <property name="hibernate.dbcp.maxIdle">10</property>
+        <property name="hibernate.dbcp.minIdle">5</property>
+        <property name="hibernate.dbcp.maxWaitMillis">-1</property>
+
+
+        <!-- Ovdje navodimo mapirane klase -->
+        <mapping class="edunova.zavrsni.model.Proizvod" />
+        <mapping class="edunova.zavrsni.model.Racun" />
+        <mapping class="edunova.zavrsni.model.Stavka" />
+        <mapping class="edunova.zavrsni.model.Djelatnik" />
+    </session-factory>
+</hibernate-configuration>
