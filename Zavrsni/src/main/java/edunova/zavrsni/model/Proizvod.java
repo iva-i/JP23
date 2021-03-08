@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,7 +20,8 @@ import javax.persistence.Id;
 @Entity
 public class Proizvod extends Entitet{
     
-
+    @NotNull(message = "Naziv je obavezan unos! (not null)")
+    @NotEmpty(message = "Naziv je obavezan unos!")
     private String naziv;
     private String sifraProizvoda;
     private String proizvodac;

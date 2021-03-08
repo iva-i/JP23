@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -19,6 +20,7 @@ import javax.persistence.ManyToOne;
 public class Racun extends Entitet{
     
     @ManyToOne
+    @NotNull(message = "Obavezan unos djelatnika!")
     private Djelatnik djelatnik;
     private String kupac;
 

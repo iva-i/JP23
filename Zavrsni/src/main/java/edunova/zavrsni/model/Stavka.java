@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -19,8 +21,10 @@ import javax.persistence.ManyToOne;
 public class Stavka extends Entitet{
 
     @ManyToOne
+    @NotNull(message = "Obavezan unos proizvoda!")
     private Proizvod proizvod;
     @ManyToOne
+    @NotNull(message = "Obavezan unos računa!")
     private Racun racun;
     private double kolicina;
     private double cijena;
