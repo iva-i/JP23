@@ -5,6 +5,7 @@
  */
 package edunova.zavrsni.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,22 +16,18 @@ import javax.persistence.Id;
  * @author Skec
  */
 @Entity
-public class Proizvod {
+public class Proizvod extends Entitet{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sifra;
-    private String sifraProizvoda, naziv, proizvodac, opis, mjernaJedinica;
+
+    private String naziv;
+    private String sifraProizvoda;
+    private String proizvodac;
+    private String opis;
+    private String mjernaJedinica;
     private Boolean naStanju;
-    private double cijena, kolicinaNaStanju;
+    private double cijena;
+    private double kolicinaNaStanju;
 
-    public int getSifra() {
-        return sifra;
-    }
-
-    public void setSifra(int sifra) {
-        this.sifra = sifra;
-    }
 
     public String getSifraProizvoda() {
         return sifraProizvoda;

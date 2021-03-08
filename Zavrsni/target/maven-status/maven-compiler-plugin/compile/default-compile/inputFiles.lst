@@ -1,6 +1,10 @@
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\model\Djelatnik.java
+D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\model\Entitet.java
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\model\Proizvod.java
+D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\util\InitialFixtures.java
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\rad\Start.java
+D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\util\ZavrsniRadException.java
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\model\Stavka.java
+D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\controller\Obrada.java
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\model\Racun.java
 D:\netbeans\Zavrsni\src\main\java\edunova\zavrsni\util\HibernateUtil.java

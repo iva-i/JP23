@@ -2,5 +2,9 @@ edunova\zavrsni\util\HibernateUtil.class
 edunova\zavrsni\model\Djelatnik.class
 edunova\zavrsni\model\Proizvod.class
 edunova\zavrsni\model\Racun.class
+edunova\zavrsni\controller\Obrada.class
 edunova\zavrsni\rad\Start.class
 edunova\zavrsni\model\Stavka.class
+edunova\zavrsni\util\InitialFixtures.class
+edunova\zavrsni\model\Entitet.class
+edunova\zavrsni\util\ZavrsniRadException.class

@@ -16,22 +16,11 @@ import javax.persistence.ManyToOne;
  * @author Skec
  */
 @Entity
-class Racun {
+public class Racun extends Entitet{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sifra;
     @ManyToOne
     private Djelatnik djelatnik;
     private String kupac;
-
-    public int getSifra() {
-        return sifra;
-    }
-
-    public void setSifra(int sifra) {
-        this.sifra = sifra;
-    }
 
     public Djelatnik getDjelatnik() {
         return djelatnik;

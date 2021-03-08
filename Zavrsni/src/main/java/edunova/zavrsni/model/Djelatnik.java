@@ -15,20 +15,13 @@ import javax.persistence.Id;
  * @author Skec
  */
 @Entity
-public class Djelatnik {
+public class Djelatnik extends Entitet{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sifra;
-    private String ime, prezime, jmbag, oib, strucnaSprema;
-
-    public int getSifra() {
-        return sifra;
-    }
-
-    public void setSifra(int sifra) {
-        this.sifra = sifra;
-    }
+    private String ime;
+    private String prezime;
+    private String jmbag;
+    private String oib;
+    private String strucnaSprema;
 
     public String getIme() {
         return ime;
