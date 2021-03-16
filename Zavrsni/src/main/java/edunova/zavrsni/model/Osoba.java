@@ -6,6 +6,8 @@
 package edunova.zavrsni.model;
 
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,8 +16,11 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class Osoba extends Entitet{
     
+    @NotNull(message = "Ime nije ok!")
+    @NotEmpty(message = "Ime nije ok!")
     private String ime;
     private String prezime;
+    private String oib;
 
     public String getIme() {
         return ime;
@@ -32,7 +37,14 @@ public abstract class Osoba extends Entitet{
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
-    
+ 
+    public String getOib() {
+        return oib;
+    }
+
+    public void setOib(String oib) {
+        this.oib = oib;
+    }
     
     
 }

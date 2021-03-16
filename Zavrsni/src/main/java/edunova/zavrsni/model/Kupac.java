@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 public class Kupac extends Osoba{
     
     private String nazivFirme;
+    private String adresa;
 
     public String getNazivFirme() {
         return nazivFirme;
@@ -23,7 +24,13 @@ public class Kupac extends Osoba{
     public void setNazivFirme(String nazivFirme) {
         this.nazivFirme = nazivFirme;
     }
-    
-    
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
     
 }

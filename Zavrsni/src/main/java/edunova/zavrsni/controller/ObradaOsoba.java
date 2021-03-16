@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Skec
  */
-public class ObradaOsoba<T extends Osoba> extends Obrada<T> {
+public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
 
     @Override
     public List<T> getPodaci() {
@@ -22,17 +22,57 @@ public class ObradaOsoba<T extends Osoba> extends Obrada<T> {
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        kontrolaOIB();
     }
 
     @Override
     protected void kontrolaUpdate() throws ZavrsniRadException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        kontrolaOIB();
     }
 
     @Override
     protected void kontrolaDelete() throws ZavrsniRadException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO
     }
+    
+    private void kontrolaOIB() throws ZavrsniRadException{
+        if(!oibValjan(entitet.getOib())){
+            throw new ZavrsniRadException("OIB nije formalno ispravan");
+        }
+    }
+    
+    
+    private boolean oibValjan(String oib){
+        //https://regos.hr/app/uploads/2018/07/KONTROLA-OIB-a.pdf
+        
+        
+        if (oib==null || oib.length() != 11) {
+            return false;
+        }
+
+        try {
+            Long.parseLong(oib);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        int a = 10;
+        for (int i = 0; i < 10; i++) {
+            a = a + Integer.parseInt(oib.substring(i, i + 1));
+            a = a % 10;
+            if (a == 0) {
+                a = 10;
+            }
+            a *= 2;
+            a = a % 11;
+        }
+        int kontrolni = 11 - a;
+        if (kontrolni == 10) {
+            kontrolni = 0;
+        }
+        return kontrolni == Integer.parseInt(oib.substring(10));
+
+    }
+
     
 }

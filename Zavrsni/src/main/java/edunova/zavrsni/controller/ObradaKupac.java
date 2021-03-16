@@ -13,4 +13,6 @@ import edunova.zavrsni.model.Kupac;
  */
 public class ObradaKupac extends ObradaOsoba<Kupac>{
     
+    
+    
 }

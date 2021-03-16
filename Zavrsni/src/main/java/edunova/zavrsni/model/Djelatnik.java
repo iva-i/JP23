@@ -20,10 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Djelatnik extends Osoba{
     
-//    @NotNull(message = "Ime je obavezan unos! (not null)")
-//    @NotEmpty(message = "Ime je obavezan unos!")
     private String jmbag;
-    private String oib;
     private String strucnaSprema;
 
     public String getJmbag() {
@@ -32,14 +29,6 @@ public class Djelatnik extends Osoba{
 
     public void setJmbag(String jmbag) {
         this.jmbag = jmbag;
-    }
-
-    public String getOib() {
-        return oib;
-    }
-
-    public void setOib(String oib) {
-        this.oib = oib;
     }
 
     public String getStrucnaSprema() {
