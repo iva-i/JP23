@@ -47,5 +47,6 @@
         <mapping class="edunova.zavrsni.model.Racun" />
         <mapping class="edunova.zavrsni.model.Stavka" />
         <mapping class="edunova.zavrsni.model.Djelatnik" />
+        <mapping class="edunova.zavrsni.model.Kupac" />
     </session-factory>
 </hibernate-configuration>

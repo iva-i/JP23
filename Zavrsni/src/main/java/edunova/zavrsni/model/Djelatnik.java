@@ -5,6 +5,7 @@
  */
 package edunova.zavrsni.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,31 +18,13 @@ import javax.validation.constraints.NotNull;
  * @author Skec
  */
 @Entity
-public class Djelatnik extends Entitet{
+public class Djelatnik extends Osoba{
     
-    @NotNull(message = "Ime je obavezan unos! (not null)")
-    @NotEmpty(message = "Ime je obavezan unos!")
-    private String ime;
-    private String prezime;
+//    @NotNull(message = "Ime je obavezan unos! (not null)")
+//    @NotEmpty(message = "Ime je obavezan unos!")
     private String jmbag;
     private String oib;
     private String strucnaSprema;
-
-    public String getIme() {
-        return ime;
-    }
-
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
 
     public String getJmbag() {
         return jmbag;

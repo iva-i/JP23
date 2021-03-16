@@ -6,6 +6,7 @@
 package edunova.zavrsni.rad;
 
 import edunova.zavrsni.util.HibernateUtil;
+import static edunova.zavrsni.util.InitialFixtures.start;
 import org.hibernate.Session;
 
 /**
@@ -17,6 +18,8 @@ public class Start {
     public static void main(String[] args) {
         
         Session s = HibernateUtil.getSession();
+        
+        start();
         
     }
     

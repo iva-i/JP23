@@ -6,6 +6,7 @@
 package edunova.zavrsni.model;
 
 
+import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,8 +29,8 @@ public class Proizvod extends Entitet{
     private String opis;
     private String mjernaJedinica;
     private Boolean naStanju;
-    private double cijena;
-    private double kolicinaNaStanju;
+    private BigDecimal cijena;
+    private BigDecimal kolicinaNaStanju;
 
 
     public String getSifraProizvoda() {
@@ -80,19 +81,19 @@ public class Proizvod extends Entitet{
         this.naStanju = naStanju;
     }
 
-    public double getCijena() {
+    public BigDecimal getCijena() {
         return cijena;
     }
 
-    public void setCijena(double cijena) {
+    public void setCijena(BigDecimal cijena) {
         this.cijena = cijena;
     }
 
-    public double getKolicinaNaStanju() {
+    public BigDecimal getKolicinaNaStanju() {
         return kolicinaNaStanju;
     }
 
-    public void setKolicinaNaStanju(double kolicinaNaStanju) {
+    public void setKolicinaNaStanju(BigDecimal kolicinaNaStanju) {
         this.kolicinaNaStanju = kolicinaNaStanju;
     }
     

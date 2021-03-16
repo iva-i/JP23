@@ -5,6 +5,7 @@
  */
 package edunova.zavrsni.model;
 
+import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,9 @@ public class Racun extends Entitet{
     @ManyToOne
     @NotNull(message = "Obavezan unos djelatnika!")
     private Djelatnik djelatnik;
-    private String kupac;
+    @ManyToOne
+    private Kupac kupac;
+    private BigDecimal rabat;
 
     public Djelatnik getDjelatnik() {
         return djelatnik;
@@ -32,14 +35,20 @@ public class Racun extends Entitet{
         this.djelatnik = djelatnik;
     }
 
-    public String getKupac() {
+    public Kupac getKupac() {
         return kupac;
     }
 
-    public void setKupac(String kupac) {
+    public void setKupac(Kupac kupac) {
         this.kupac = kupac;
     }
-    
-    
+
+    public BigDecimal getRabat() {
+        return rabat;
+    }
+
+    public void setRabat(BigDecimal rabat) {
+        this.rabat = rabat;
+    }   
     
 }

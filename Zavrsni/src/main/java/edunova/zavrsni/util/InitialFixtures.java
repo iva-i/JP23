@@ -7,6 +7,8 @@ package edunova.zavrsni.util;
 
 import edunova.zavrsni.model.Djelatnik;
 import edunova.zavrsni.model.Proizvod;
+import java.io.Serializable;
+import java.math.BigDecimal;
 import org.hibernate.Session;
 
 /**
@@ -16,27 +18,27 @@ import org.hibernate.Session;
 public class InitialFixtures {
     
     public static void start(){
+        System.out.println("krecem izvoditi");
         
         Session s = HibernateUtil.getSession();
         s.beginTransaction();
         
         Djelatnik djelatnik1 = new Djelatnik();
         djelatnik1.setIme("Iva");
-        djelatnik1.setPrezime("Ivezić");
         
         s.save(djelatnik1);
         
         Proizvod cokolada1 = new Proizvod();
-        cokolada1.setCijena(6.99);
-        cokolada1.setKolicinaNaStanju(100);
         cokolada1.setNaziv("Milka Oreo");
+        cokolada1.setCijena(BigDecimal.valueOf(6.99));
+        cokolada1.setKolicinaNaStanju(BigDecimal.ONE);
         
         s.save(cokolada1);
         
         Proizvod cokolada2 = new Proizvod();
-        cokolada1.setCijena(5.99);
-        cokolada1.setKolicinaNaStanju(50);
-        cokolada1.setNaziv("Dorina Keks");
+        cokolada2.setNaziv("Dorina Keks");
+        cokolada2.setCijena(BigDecimal.valueOf(5.99));
+        cokolada2.setKolicinaNaStanju(BigDecimal.TEN);
         
         s.save(cokolada2);
         
