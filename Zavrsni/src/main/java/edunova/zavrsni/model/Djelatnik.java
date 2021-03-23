@@ -20,6 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Djelatnik extends Osoba{
     
+    private int sifraDjelatnika;
     private String jmbag;
     private String strucnaSprema;
 
@@ -37,6 +38,14 @@ public class Djelatnik extends Osoba{
 
     public void setStrucnaSprema(String strucnaSprema) {
         this.strucnaSprema = strucnaSprema;
+    }
+
+    public int getSifraDjelatnika() {
+        return sifraDjelatnika;
+    }
+
+    public void setSifraDjelatnika(int sifra) {
+        this.sifraDjelatnika = sifra;
     }
     
     

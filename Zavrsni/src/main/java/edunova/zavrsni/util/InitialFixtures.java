@@ -25,6 +25,7 @@ public class InitialFixtures {
         
         Djelatnik djelatnik1 = new Djelatnik();
         djelatnik1.setIme("Iva");
+        djelatnik1.setSifraDjelatnika(1234);
         
         s.save(djelatnik1);
         
