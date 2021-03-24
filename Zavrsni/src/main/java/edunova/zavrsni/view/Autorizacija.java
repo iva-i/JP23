@@ -8,6 +8,7 @@ package edunova.zavrsni.view;
 import edunova.zavrsni.controller.ObradaDjelatnik;
 import edunova.zavrsni.model.Djelatnik;
 import java.awt.event.KeyEvent;
+import javax.persistence.NoResultException;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
@@ -62,6 +63,11 @@ public class Autorizacija extends javax.swing.JFrame {
         });
 
         btnPrijava.setText("Prijava");
+        btnPrijava.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrijavaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,17 +86,17 @@ public class Autorizacija extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(txtSifraDjelatnika)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pswSifraDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPrijava, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,6 +117,10 @@ public class Autorizacija extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pswSifraDjelatnikaKeyReleased
 
+    private void btnPrijavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrijavaActionPerformed
+        prijaviSe();
+    }//GEN-LAST:event_btnPrijavaActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -122,39 +132,33 @@ public class Autorizacija extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void prijaviSe() {
+        try{
+            if(txtImeDjelatnika.getText().isEmpty()){
+                obradiGresku(txtImeDjelatnika, "Obavezno ime!");
+                return;
+            }          
+
+            if(pswSifraDjelatnika.getPassword().length==0){
+                obradiGresku(pswSifraDjelatnika, "Obavezno šifra!");
+                return;
+            }
+
+            ObradaDjelatnik oo = new ObradaDjelatnik();
+            Djelatnik o = oo.autoriziraj(txtImeDjelatnika.getText(), pswSifraDjelatnika.getPassword());
+
+            if(o==null){
+                obradiGresku(pswSifraDjelatnika, "Ime i šifra ne odgovaraju");
+                return;
+            } 
+
+
+            Aplikacija.djelatnik=o;
+            new Izbornik().setVisible(true);
+            dispose();
         
-        if(txtImeDjelatnika.getText().isEmpty()){
-            obradiGresku(txtImeDjelatnika, "Obavezno ime!");
-            return;
+        }catch(NoResultException e){
+            obradiGresku(txtImeDjelatnika, "Nepostojeći djelatnik!");
         }
-        
-//        try {
-//            InternetAddress email=new InternetAddress(txtEmail.getText());
-//            email.validate();
-//        } catch (AddressException e) {
-//            obradiGresku(txtEmail, "Email nije ispravan");
-//            return;
-//        }
-        
-      
-        if(pswSifraDjelatnika.getPassword().length==0){
-            obradiGresku(pswSifraDjelatnika, "Obavezno šifra!");
-            return;
-        }
-        
-        // znam kako je postavljen email i loznika
-        ObradaDjelatnik oo = new ObradaDjelatnik();
-        Djelatnik o = oo.autoriziraj(txtImeDjelatnika.getText(), pswSifraDjelatnika.getPassword());
-        
-        if(o==null){
-            obradiGresku(pswSifraDjelatnika, "Ime i šifra ne odgovaraju");
-            return;
-        }
-        
-        
-        Aplikacija.djelatnik=o;
-        new Izbornik().setVisible(true);
-        dispose();
     }
     
     private void obradiGresku(JComponent komponenta, String poruka){

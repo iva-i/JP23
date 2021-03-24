@@ -23,12 +23,6 @@ public class InitialFixtures {
         Session s = HibernateUtil.getSession();
         s.beginTransaction();
         
-        Djelatnik djelatnik1 = new Djelatnik();
-        djelatnik1.setIme("Iva");
-        djelatnik1.setSifraDjelatnika(1234);
-        
-        s.save(djelatnik1);
-        
         Proizvod cokolada1 = new Proizvod();
         cokolada1.setNaziv("Milka Oreo");
         cokolada1.setCijena(BigDecimal.valueOf(6.99));

@@ -8,6 +8,7 @@ package edunova.zavrsni.controller;
 import edunova.zavrsni.model.Djelatnik;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -24,8 +25,7 @@ public class ObradaDjelatnik extends ObradaOsoba<Djelatnik>{
         if(d==null){
             return null;
         }
-       // return BCrypt.checkpw(new String(lozinka),d.getSifra()) ? d : null;
-        return null;
+       return BCrypt.checkpw(new String(sifraDjelatnika),d.getSifraDjelatnika()) ? d : null;
     }
    
     

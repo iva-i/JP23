@@ -24,22 +24,10 @@ public class Proizvod extends Entitet{
     @NotNull(message = "Naziv je obavezan unos! (not null)")
     @NotEmpty(message = "Naziv je obavezan unos!")
     private String naziv;
-    private String sifraProizvoda;
     private String proizvodac;
     private String opis;
-    private String mjernaJedinica;
-    private Boolean naStanju;
     private BigDecimal cijena;
     private BigDecimal kolicinaNaStanju;
-
-
-    public String getSifraProizvoda() {
-        return sifraProizvoda;
-    }
-
-    public void setSifraProizvoda(String sifraProizvoda) {
-        this.sifraProizvoda = sifraProizvoda;
-    }
 
     public String getNaziv() {
         return naziv;
@@ -65,22 +53,6 @@ public class Proizvod extends Entitet{
         this.opis = opis;
     }
 
-    public String getMjernaJedinica() {
-        return mjernaJedinica;
-    }
-
-    public void setMjernaJedinica(String mjernaJedinica) {
-        this.mjernaJedinica = mjernaJedinica;
-    }
-
-    public Boolean getNaStanju() {
-        return naStanju;
-    }
-
-    public void setNaStanju(Boolean naStanju) {
-        this.naStanju = naStanju;
-    }
-
     public BigDecimal getCijena() {
         return cijena;
     }
@@ -95,6 +67,14 @@ public class Proizvod extends Entitet{
 
     public void setKolicinaNaStanju(BigDecimal kolicinaNaStanju) {
         this.kolicinaNaStanju = kolicinaNaStanju;
+    }
+
+    @Override
+    public String toString() {
+        if(getNaziv()==null || getNaziv().trim().isEmpty()){
+            return "[Naziv nije definiran]";
+        }
+        return getNaziv();
     }
     
     

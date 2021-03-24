@@ -5,10 +5,8 @@
  */
 package edunova.zavrsni.rad;
 
-import edunova.zavrsni.util.HibernateUtil;
 import static edunova.zavrsni.util.InitialFixtures.start;
 import edunova.zavrsni.view.SplashScreen;
-import org.hibernate.Session;
 
 /**
  *
@@ -17,7 +15,7 @@ import org.hibernate.Session;
 public class Start {
     
     public static void main(String[] args) {
-        
+       
        new SplashScreen().setVisible(true);
         
     }
