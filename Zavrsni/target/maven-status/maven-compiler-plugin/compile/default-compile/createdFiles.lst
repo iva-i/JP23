@@ -1,3 +1,4 @@
+edunova\zavrsni\view\ProizvodiForma$3.class
 edunova\zavrsni\controller\ObradaOsoba.class
 edunova\zavrsni\model\Proizvod.class
 edunova\zavrsni\controller\Obrada.class
@@ -17,6 +18,7 @@ edunova\zavrsni\util\InitialFixtures.class
 edunova\zavrsni\util\KreirajDjelatnika.class
 edunova\zavrsni\controller\ObradaKupac.class
 edunova\zavrsni\controller\ObradaStavka.class
+edunova\zavrsni\view\ProizvodiForma$4.class
 edunova\zavrsni\controller\ObradaDjelatnik.class
 edunova\zavrsni\view\Autorizacija$3.class
 edunova\zavrsni\model\Osoba.class
