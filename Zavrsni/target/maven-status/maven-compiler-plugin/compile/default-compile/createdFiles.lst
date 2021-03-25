@@ -1,3 +1,4 @@
+edunova\zavrsni\view\KupciForma$1.class
 edunova\zavrsni\view\ProizvodiForma$3.class
 edunova\zavrsni\controller\ObradaOsoba.class
 edunova\zavrsni\model\Proizvod.class
@@ -5,16 +6,20 @@ edunova\zavrsni\controller\Obrada.class
 edunova\zavrsni\rad\Start.class
 edunova\zavrsni\view\Izbornik.class
 edunova\zavrsni\controller\ObradaProizvod.class
+edunova\zavrsni\view\Izbornik$2.class
 edunova\zavrsni\model\Djelatnik.class
 edunova\zavrsni\view\Aplikacija.class
 edunova\zavrsni\view\Izbornik$1.class
 edunova\zavrsni\view\Autorizacija$2.class
 edunova\zavrsni\view\ProizvodiForma$2.class
+edunova\zavrsni\view\KupciForma.class
 edunova\zavrsni\controller\ObradaRacun.class
+edunova\zavrsni\view\KupciForma$4.class
 edunova\zavrsni\model\Kupac.class
 edunova\zavrsni\model\Racun.class
 edunova\zavrsni\view\ProizvodiForma.class
 edunova\zavrsni\util\InitialFixtures.class
+edunova\zavrsni\view\KupciForma$2.class
 edunova\zavrsni\util\KreirajDjelatnika.class
 edunova\zavrsni\controller\ObradaKupac.class
 edunova\zavrsni\controller\ObradaStavka.class
@@ -25,6 +30,8 @@ edunova\zavrsni\model\Osoba.class
 edunova\zavrsni\util\HibernateUtil.class
 edunova\zavrsni\view\SplashScreen.class
 edunova\zavrsni\view\ProizvodiForma$1.class
+edunova\zavrsni\view\KupciForma$3.class
+edunova\zavrsni\util\Test.class
 edunova\zavrsni\model\Stavka.class
 edunova\zavrsni\view\Autorizacija.class
 edunova\zavrsni\view\SplashScreen$Ucitanje.class

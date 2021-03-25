@@ -8,6 +8,7 @@ package edunova.zavrsni.controller;
 import edunova.zavrsni.model.Osoba;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.util.List;
+import org.hibernate.CacheMode;
 
 /**
  *
@@ -15,10 +16,12 @@ import java.util.List;
  */
 public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
 
-    @Override
-    public List<T> getPodaci() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public List<T> getPodaci() {
+//        List<Osoba> lista =session.createQuery("from Proizvod").list();
+//        session.setCacheMode(CacheMode.IGNORE);
+//        return lista; 
+//    }
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {

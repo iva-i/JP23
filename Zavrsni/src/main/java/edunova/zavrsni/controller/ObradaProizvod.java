@@ -18,7 +18,7 @@ public class ObradaProizvod extends Obrada<Proizvod>{
 
     @Override
     public List<Proizvod> getPodaci() {
-        List<Proizvod> lista =session.createQuery("from Proizvod").list();
+        List<Proizvod> lista = session.createQuery("from Proizvod").list();
         session.setCacheMode(CacheMode.IGNORE);
         return lista; 
        

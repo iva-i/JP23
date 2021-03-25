@@ -50,6 +50,11 @@ public class Izbornik extends javax.swing.JFrame {
         jmTrgovina.add(jMenuItem1);
 
         jMenuItem2.setText("Kupci");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jmTrgovina.add(jMenuItem2);
 
         jMenuItem3.setText("Računi");
@@ -83,6 +88,10 @@ public class Izbornik extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         new ProizvodiForma().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        new KupciForma().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     
 

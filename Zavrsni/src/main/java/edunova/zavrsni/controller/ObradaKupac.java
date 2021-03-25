@@ -6,6 +6,9 @@
 package edunova.zavrsni.controller;
 
 import edunova.zavrsni.model.Kupac;
+import edunova.zavrsni.util.ZavrsniRadException;
+import java.util.List;
+import org.hibernate.CacheMode;
 
 /**
  *
@@ -13,6 +16,26 @@ import edunova.zavrsni.model.Kupac;
  */
 public class ObradaKupac extends ObradaOsoba<Kupac>{
     
-    
+    @Override
+    public List<Kupac> getPodaci() {
+      List<Kupac> lista = session.createQuery("from Kupac").list();
+      session.setCacheMode(CacheMode.IGNORE);
+      return lista; 
+    }
+
+    @Override
+    protected void kontrolaCreate() throws ZavrsniRadException {
+       
+    }
+
+    @Override
+    protected void kontrolaUpdate() throws ZavrsniRadException {
+        
+    }
+
+    @Override
+    protected void kontrolaDelete() throws ZavrsniRadException {
+        
+    }
     
 }

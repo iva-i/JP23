@@ -5,17 +5,29 @@
  */
 package edunova.zavrsni.view;
 
+import edunova.zavrsni.controller.ObradaKupac;
+import edunova.zavrsni.model.Kupac;
+import edunova.zavrsni.util.ZavrsniRadException;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Skec
  */
 public class KupciForma extends javax.swing.JFrame {
 
+    private ObradaKupac obrada;
+    
     /**
      * Creates new form KupciForma
      */
     public KupciForma() {
+        
         initComponents();
+        obrada = new ObradaKupac();
+        setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
+        ucitaj();
     }
 
     /**
@@ -27,57 +39,307 @@ public class KupciForma extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        txtImeKupca = new javax.swing.JTextField();
+        txtPrezimeKupca = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtOIB = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtNazivFirme = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtAdresaKupca = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnDodaj = new javax.swing.JButton();
+        btnObrisi = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstKupci = new javax.swing.JList<>();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("Ime kupca:");
+
+        jLabel2.setText("Prezime kupca:");
+
+        jLabel3.setText("OIB:");
+
+        jLabel4.setText("Naziv firme:");
+
+        jLabel5.setText("Adresa kupca:");
+
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setText("Obriši");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        lstKupci.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstKupciValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lstKupci);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtImeKupca)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 219, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrezimeKupca)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtOIB)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNazivFirme)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAdresaKupca)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPromjeni, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(21, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtImeKupca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPrezimeKupca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNazivFirme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAdresaKupca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnObrisi)
+                            .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(KupciForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(KupciForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(KupciForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(KupciForma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new KupciForma().setVisible(true);
-            }
-        });
-    }
+        obrada.setEntitet(new Kupac());
+        postaviVrijednostiNaEntitet();
+
+        try {
+            obrada.create();
+            pocisti();
+            ucitaj();
+        } catch (ZavrsniRadException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+        
+        if (obrada.getEntitet() == null || obrada.getEntitet().getSifra() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite stavku");
+            return;
+        }
+
+        try {
+            obrada.delete();
+            pocisti();
+            ucitaj();
+        } catch (ZavrsniRadException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        }
+    }//GEN-LAST:event_btnObrisiActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+
+        if (obrada.getEntitet() == null || obrada.getEntitet().getSifra() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite stavku");
+            return;
+        }
+
+        postaviVrijednostiNaEntitet();
+
+        try {
+            obrada.update();
+            pocisti();
+            ucitaj();
+        } catch (ZavrsniRadException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        }
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void lstKupciValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstKupciValueChanged
+       
+        if (evt.getValueIsAdjusting()) {
+            return;
+        }
+       
+        if (lstKupci.getSelectedValue() == null) {
+            return;
+        }
+        
+        obrada.setEntitet(lstKupci.getSelectedValue());
+
+        txtImeKupca.setText(obrada.getEntitet().getIme());
+        
+        if (obrada.getEntitet().getPrezime() != null) {
+            txtPrezimeKupca.setText(obrada.getEntitet().getPrezime().toString());
+        } else {
+            txtPrezimeKupca.setText("");
+        }
+        
+        if (obrada.getEntitet().getOib() != null) {
+            txtOIB.setText(obrada.getEntitet().getOib().toString());
+        } else {
+            txtOIB.setText("");
+        }
+        
+        try {
+            txtNazivFirme.setText(obrada.getEntitet().getNazivFirme().toString());
+        } catch (Exception e) {
+            txtNazivFirme.setText("");
+        }
+        
+        try {
+            txtAdresaKupca.setText(obrada.getEntitet().getAdresa().toString());
+        } catch (Exception e) {
+            txtAdresaKupca.setText("");
+        }
+        
+    }//GEN-LAST:event_lstKupciValueChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnPromjeni;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<Kupac> lstKupci;
+    private javax.swing.JTextField txtAdresaKupca;
+    private javax.swing.JTextField txtImeKupca;
+    private javax.swing.JTextField txtNazivFirme;
+    private javax.swing.JTextField txtOIB;
+    private javax.swing.JTextField txtPrezimeKupca;
     // End of variables declaration//GEN-END:variables
+
+    private void ucitaj() {
+        
+        DefaultListModel<Kupac> m = new DefaultListModel<>();
+
+        m.addAll(obrada.getPodaci());
+
+        lstKupci.setModel(m);
+    }
+
+    private void postaviVrijednostiNaEntitet() {
+        
+        var entitet = obrada.getEntitet();
+        
+        entitet.setIme(txtImeKupca.getText());
+        
+        try {
+            entitet.setPrezime(txtPrezimeKupca.getText());
+        } catch (Exception e) {
+            entitet.setPrezime("");
+        }
+        
+        try {
+            entitet.setOib(txtOIB.getText());
+        } catch (Exception e) {
+            entitet.setOib("");
+        }
+
+        try {
+            entitet.setNazivFirme(txtNazivFirme.getText());
+        } catch (Exception e) {
+            entitet.setNazivFirme("");
+        }
+
+        try {
+            entitet.setAdresa(txtAdresaKupca.getText());
+        } catch (Exception e) {
+            entitet.setAdresa("");
+        }
+    }
+
+    private void pocisti() {
+        
+        txtImeKupca.setText("");
+        txtPrezimeKupca.setText("");
+        txtOIB.setText("");
+        txtNazivFirme.setText("");
+        txtAdresaKupca.setText("");
+    }
 }
