@@ -19,7 +19,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        setTitle("Prime Number APP");
+        setTitle("Prime Numbers APP");
     }
 
     /**
@@ -39,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Enter number to check is it prime!");
 
@@ -100,43 +101,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        if (txtEnterNumber == null) {
-            JOptionPane.showMessageDialog(rootPane, "Enter a number!");
-            return;
-        }
+        checkIfNumIsPrime();
         
-        try {
-            int num = Integer.parseInt(txtEnterNumber.getText().toString());
-            
-            if(isPrime(num)){
-                txtIsPrime.setText("prime!");
-            }else{
-                txtIsPrime.setText("not prime!");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Check if natural number is entered!");
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtEnterNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnterNumberKeyReleased
         
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-                if (txtEnterNumber == null) {
-                JOptionPane.showMessageDialog(rootPane, "Enter a number!");
-                return;
-            }
-
-            try {
-                int num = Integer.parseInt(txtEnterNumber.getText().toString());
-
-                if(isPrime(num)){
-                    txtIsPrime.setText("prime!");
-                }else{
-                    txtIsPrime.setText("not prime!");
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Check if natural number is entered!");
-            }
+            checkIfNumIsPrime();
         }
             
     }//GEN-LAST:event_txtEnterNumberKeyReleased
@@ -166,5 +138,25 @@ public class Menu extends javax.swing.JFrame {
         }
         
         return isPrime;
+    }
+
+    private void checkIfNumIsPrime() {
+        
+        if (txtEnterNumber == null) {
+                JOptionPane.showMessageDialog(rootPane, "Enter a number!");
+                return;
+            }
+
+        try {
+            int num = Integer.parseInt(txtEnterNumber.getText().toString());
+
+            if(isPrime(num)){
+                txtIsPrime.setText("prime!");
+            }else{
+                txtIsPrime.setText("not prime!");
+            }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Check if natural number is entered!");
+        }
     }
 }
