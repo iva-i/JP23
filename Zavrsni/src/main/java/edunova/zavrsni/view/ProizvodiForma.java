@@ -8,6 +8,7 @@ package edunova.zavrsni.view;
 import edunova.zavrsni.controller.ObradaProizvod;
 import edunova.zavrsni.model.Proizvod;
 import edunova.zavrsni.util.ZavrsniRadException;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -55,6 +56,7 @@ public class ProizvodiForma extends javax.swing.JFrame {
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
+        btnOcistiPolja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,11 +69,35 @@ public class ProizvodiForma extends javax.swing.JFrame {
 
         jLabel1.setText("Naziv proizvoda:");
 
+        txtNazivProizvoda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNazivProizvodaKeyReleased(evt);
+            }
+        });
+
         jLabel2.setText("Proizvođač:");
 
-        jLabel3.setText("Opis (opcionalno):");
+        txtProizvodac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtProizvodacKeyReleased(evt);
+            }
+        });
+
+        jLabel3.setText("Opis:");
+
+        txtOpis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOpisKeyReleased(evt);
+            }
+        });
 
         jLabel4.setText("Cijena:");
+
+        txtCijena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCijenaKeyReleased(evt);
+            }
+        });
 
         jLabel5.setText("Količina na stanju:");
 
@@ -93,6 +119,13 @@ public class ProizvodiForma extends javax.swing.JFrame {
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnObrisiActionPerformed(evt);
+            }
+        });
+
+        btnOcistiPolja.setText("Očisti polja");
+        btnOcistiPolja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOcistiPoljaActionPerformed(evt);
             }
         });
 
@@ -119,11 +152,12 @@ public class ProizvodiForma extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPromjeni, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                    .addComponent(btnOcistiPolja, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,15 +184,15 @@ public class ProizvodiForma extends javax.swing.JFrame {
                         .addComponent(txtCijena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtKolicinaNaStanju, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnPromjeni)
-                                .addComponent(btnObrisi))
-                            .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 15, Short.MAX_VALUE)))
+                        .addGap(13, 13, 13)
+                        .addComponent(btnOcistiPolja)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDodaj)
+                            .addComponent(btnPromjeni)
+                            .addComponent(btnObrisi))))
                 .addContainerGap())
         );
 
@@ -173,6 +207,8 @@ public class ProizvodiForma extends javax.swing.JFrame {
         }
        
         if (lstProizvodi.getSelectedValue() == null) {
+            pocisti();
+            lstProizvodi.clearSelection();
             return;
         }
         
@@ -254,10 +290,39 @@ public class ProizvodiForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
+    private void btnOcistiPoljaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcistiPoljaActionPerformed
+        pocisti();
+    }//GEN-LAST:event_btnOcistiPoljaActionPerformed
+
+    private void txtNazivProizvodaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNazivProizvodaKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           txtProizvodac.requestFocus();
+        }
+    }//GEN-LAST:event_txtNazivProizvodaKeyReleased
+
+    private void txtProizvodacKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProizvodacKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           txtOpis.requestFocus();
+        }
+    }//GEN-LAST:event_txtProizvodacKeyReleased
+
+    private void txtOpisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOpisKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           txtCijena.requestFocus();
+        }
+    }//GEN-LAST:event_txtOpisKeyReleased
+
+    private void txtCijenaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCijenaKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           txtKolicinaNaStanju.requestFocus();
+        }
+    }//GEN-LAST:event_txtCijenaKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnOcistiPolja;
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

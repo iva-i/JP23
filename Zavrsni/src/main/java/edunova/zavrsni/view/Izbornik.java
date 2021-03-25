@@ -5,6 +5,8 @@
  */
 package edunova.zavrsni.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Skec
@@ -66,6 +68,11 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1.add(jmDjelatnici);
 
         jMenu1.setText("O nama");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -92,6 +99,11 @@ public class Izbornik extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         new KupciForma().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        
+        JOptionPane.showMessageDialog(rootPane, "© " + Aplikacija.NASLOV_APP + "\n programmed by: Iva Ivezić" );
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     
 

@@ -32,5 +32,12 @@ public class Kupac extends Osoba{
     public void setAdresa(String adresa) {
         this.adresa = adresa;
     }
+
+    @Override
+    public String toString() {
+        return super.toString(); 
+    }
+    
+    
     
 }
