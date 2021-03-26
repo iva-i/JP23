@@ -5,6 +5,7 @@
  */
 package edunova.zavrsni.view;
 
+import edunova.zavrsni.util.IzlazIzApp;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +38,8 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jmDjelatnici = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,6 +68,18 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1.add(jmTrgovina);
 
         jmDjelatnici.setText("Djelatnici");
+
+        jMenuItem4.setText("Rad s djelatnicima");
+        jmDjelatnici.add(jMenuItem4);
+
+        jMenuItem5.setText("Promjeni trenutnog djelatnika");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jmDjelatnici.add(jMenuItem5);
+
         jMenuBar1.add(jmDjelatnici);
 
         jMenu1.setText("O nama");
@@ -105,6 +120,20 @@ public class Izbornik extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "© " + Aplikacija.NASLOV_APP + "\n programmed by: Iva Ivezić" );
     }//GEN-LAST:event_jMenu1MouseClicked
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Želiš li promjeniti djelatnika?", "FrameToClose", JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            dispose();
+        } else {
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        }
+        
+        new SplashScreen().setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -113,6 +142,8 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu jmDjelatnici;
     private javax.swing.JMenu jmTrgovina;
     // End of variables declaration//GEN-END:variables

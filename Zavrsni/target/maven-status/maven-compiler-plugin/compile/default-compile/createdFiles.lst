@@ -24,6 +24,8 @@ edunova\zavrsni\util\Test.class
 edunova\zavrsni\view\Autorizacija.class
 edunova\zavrsni\model\Entitet.class
 edunova\zavrsni\util\ZavrsniRadException.class
+edunova\zavrsni\util\IzlazIzApp$1.class
+edunova\zavrsni\util\IzlazIzApp.class
 edunova\zavrsni\rad\Start.class
 edunova\zavrsni\view\ProizvodiForma$8.class
 edunova\zavrsni\view\KupciForma$6.class
@@ -32,6 +34,7 @@ edunova\zavrsni\view\KupciForma$9.class
 edunova\zavrsni\view\Aplikacija.class
 edunova\zavrsni\view\ProizvodiForma$2.class
 edunova\zavrsni\view\ProizvodiForma$5.class
+edunova\zavrsni\view\Izbornik$4.class
 edunova\zavrsni\controller\ObradaRacun.class
 edunova\zavrsni\view\ProizvodiForma$9.class
 edunova\zavrsni\view\ProizvodiForma.class

@@ -20,12 +20,12 @@ public class Test {
         Faker faker = new Faker();
         ObradaKupac ok = new ObradaKupac();
         Kupac k;
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 20; i++){
             k = new Kupac();
             k.setIme(faker.name().firstName());
             k.setPrezime(faker.name().lastName());
-            k.setAdresa(faker.address().toString());
-            k.setNazivFirme(faker.company().toString());
+            k.setAdresa(faker.address().streetAddress() + ", " + faker.address().city());
+            //k.setNazivFirme(faker.company().name());
             
             ok.setEntitet(k);
             
