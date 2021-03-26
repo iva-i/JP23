@@ -5,7 +5,6 @@
  */
 package edunova.zavrsni.view;
 
-import edunova.zavrsni.util.IzlazIzApp;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,6 +38,7 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jmDjelatnici = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
 
@@ -71,6 +71,14 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenuItem4.setText("Rad s djelatnicima");
         jmDjelatnici.add(jMenuItem4);
+
+        jMenuItem6.setText("Promjeni lozinku djelatnika");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jmDjelatnici.add(jMenuItem6);
 
         jMenuItem5.setText("Promjeni trenutnog djelatnika");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +142,10 @@ public class Izbornik extends javax.swing.JFrame {
         new SplashScreen().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new PromjeniLozinkuDjelatnikaForma().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -144,6 +156,7 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu jmDjelatnici;
     private javax.swing.JMenu jmTrgovina;
     // End of variables declaration//GEN-END:variables
