@@ -24,6 +24,9 @@ public class AverageArrayList {
 			}
 		}
 		
+		//removed 0 (last input)
+		list.remove(list.size()-1);
+		
 		input.close();
 		
 		average(list);
