@@ -17,6 +17,9 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author Skec
  */
+
+//TODO
+
 public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
     private ObradaDjelatnik obrada;
@@ -46,6 +49,8 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         txtNovaLozinka = new javax.swing.JTextField();
         btnPromjeniLozinku = new javax.swing.JButton();
         lblImeDjelatnika = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNovaLozinkaPotvrda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -61,6 +66,12 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
         jLabel4.setText("Unesi novu lozinku:");
 
+        txtNovaLozinka.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNovaLozinkaActionPerformed(evt);
+            }
+        });
+
         btnPromjeniLozinku.setText("Promjeni lozinku");
         btnPromjeniLozinku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,32 +79,37 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Potvrdi novu lozinku:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnPromjeniLozinku, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-                    .addComponent(txtNovaLozinka)
-                    .addComponent(txtStaraLozinka)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnPromjeniLozinku, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                        .addComponent(txtNovaLozinka)
+                        .addComponent(txtStaraLozinka)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNovaLozinkaPotvrda)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(lblImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtStaraLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,9 +117,13 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNovaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNovaLozinkaPotvrda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnPromjeniLozinku)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,6 +148,10 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPromjeniLozinkuActionPerformed
 
+    private void txtNovaLozinkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaLozinkaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNovaLozinkaActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -135,8 +159,10 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblImeDjelatnika;
     private javax.swing.JTextField txtNovaLozinka;
+    private javax.swing.JTextField txtNovaLozinkaPotvrda;
     private javax.swing.JTextField txtStaraLozinka;
     // End of variables declaration//GEN-END:variables
 
@@ -149,6 +175,16 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
             if(txtNovaLozinka.getText().isEmpty()){
                 obradiGresku(txtNovaLozinka, "Obavezno nova lozinka!");
+                return;
+            }
+            
+            if(txtNovaLozinkaPotvrda.getText().isEmpty()){
+                obradiGresku(txtNovaLozinkaPotvrda, "Obavezno potvrda nove lozinke!");
+                return;
+            }
+            
+            if(txtNovaLozinka.getText() != txtNovaLozinkaPotvrda.getText()){
+                obradiGresku(txtNovaLozinka, "Nova lozinka se ne podudara!");
                 return;
             }
 
