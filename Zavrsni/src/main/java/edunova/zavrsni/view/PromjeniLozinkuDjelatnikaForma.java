@@ -66,12 +66,6 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
         jLabel4.setText("Unesi novu lozinku:");
 
-        txtNovaLozinka.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNovaLozinkaActionPerformed(evt);
-            }
-        });
-
         btnPromjeniLozinku.setText("Promjeni lozinku");
         btnPromjeniLozinku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,10 +141,6 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
     }//GEN-LAST:event_btnPromjeniLozinkuActionPerformed
-
-    private void txtNovaLozinkaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaLozinkaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNovaLozinkaActionPerformed
 
     
 

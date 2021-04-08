@@ -153,7 +153,7 @@ public class Autorizacija extends javax.swing.JFrame {
 
 
             Aplikacija.djelatnik=o;
-            new Izbornik().setVisible(true);
+            new IzbornikPokusajTreci().setVisible(true);
             dispose();
         
         }catch(NoResultException e){
