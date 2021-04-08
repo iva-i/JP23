@@ -19,6 +19,15 @@ public class ObradaStavka extends Obrada<Stavka>{
     public List<Stavka> getPodaci() {
         return session.createQuery("from Stavka").list(); 
     }
+    
+    public List<Stavka> getPodaci(String uvjet) {
+        return session.createQuery("from Stavka s "
+                + " where concat(s.racun) "
+                + " = :uvjet")
+                .setParameter("uvjet", uvjet)
+                .setMaxResults(50)
+                .list();
+    }
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {

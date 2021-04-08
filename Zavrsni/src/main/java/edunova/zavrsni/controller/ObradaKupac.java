@@ -22,6 +22,15 @@ public class ObradaKupac extends ObradaOsoba<Kupac>{
       session.setCacheMode(CacheMode.IGNORE);
       return lista; 
     }
+    
+    public List<Kupac> getPodaci(String uvjet) {
+        return session.createQuery("from Kupac p "
+                + " where concat(p.ime, ' ', p.prezime)"
+                + " like :uvjet order by p.prezime, p.ime")
+                .setParameter("uvjet", "%" + uvjet + "%")
+                .setMaxResults(20)
+                .list();
+    }
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {
