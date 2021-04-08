@@ -27,10 +27,14 @@
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblKupci" min="-2" pref="104" max="-2" attributes="0"/>
-                  <Component id="lblProizvodi" min="-2" pref="104" max="-2" attributes="0"/>
                   <Component id="btnKreirajNoviRacun" alignment="0" min="-2" pref="512" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblProizvodi" min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace pref="182" max="32767" attributes="0"/>
+                      <Component id="lblPromjeniTrenutnogDjelatnika" min="-2" pref="261" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,7 +42,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-              <Component id="lblProizvodi" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblProizvodi" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="lblPromjeniTrenutnogDjelatnika" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblKupci" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="156" max="32767" attributes="0"/>
@@ -77,6 +84,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKreirajNoviRacunActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPromjeniTrenutnogDjelatnika">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Promjeni trenutnog djelatnika"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPromjeniTrenutnogDjelatnikaMouseReleased"/>
       </Events>
     </Component>
   </SubComponents>

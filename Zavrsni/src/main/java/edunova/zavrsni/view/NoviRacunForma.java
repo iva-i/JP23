@@ -7,9 +7,12 @@ package edunova.zavrsni.view;
 
 import edunova.zavrsni.controller.ObradaProizvod;
 import edunova.zavrsni.controller.ObradaRacun;
+import edunova.zavrsni.controller.ObradaStavka;
 import edunova.zavrsni.model.Proizvod;
 import edunova.zavrsni.model.Racun;
+import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
+import java.math.BigDecimal;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -21,6 +24,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
     
     private ObradaProizvod obradaProizvod;
     private ObradaRacun obradaRacun;
+    private ObradaStavka obradaStavka;
 
     /**
      * Creates new form NoviRacunForma
@@ -29,6 +33,19 @@ public class NoviRacunForma extends javax.swing.JFrame {
         initComponents();
         obradaProizvod = new ObradaProizvod();
         obradaRacun = new ObradaRacun();
+        obradaRacun.setEntitet(new Racun());
+        postaviDjelatnikaNaRacun();
+        
+        try {
+            obradaRacun.create();
+        } catch (ZavrsniRadException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
+        }
+        
+        obradaStavka = new ObradaStavka();  
+        
+        lblBrojRacuna.setText(obradaRacun.getEntitet().getSifra().toString());
+        
         setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
     }
 
@@ -47,14 +64,35 @@ public class NoviRacunForma extends javax.swing.JFrame {
         btnTrazi = new javax.swing.JButton();
         btnPrikaziSveProizvode = new javax.swing.JButton();
         btnPotvrdi = new javax.swing.JToggleButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstProizvodiRacuna = new javax.swing.JList<>();
+        btnDodajStavku = new javax.swing.JButton();
+        btnObrisiStavku = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblUkupnaCijena = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtKolicina = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        lblBrojRacuna = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jScrollPane1.setViewportView(lstSviProizvodi);
 
         txtPronadiProizvod.setText("Pronađi proizvod");
+        txtPronadiProizvod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPronadiProizvodMouseClicked(evt);
+            }
+        });
 
         btnTrazi.setText("Traži");
+        btnTrazi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTraziActionPerformed(evt);
+            }
+        });
 
         btnPrikaziSveProizvode.setText("Prikaži sve proizvode");
         btnPrikaziSveProizvode.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +108,31 @@ public class NoviRacunForma extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setViewportView(lstProizvodiRacuna);
+
+        btnDodajStavku.setText(">> Dodaj stavku >>");
+        btnDodajStavku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajStavkuActionPerformed(evt);
+            }
+        });
+
+        btnObrisiStavku.setText("<< Obriši stavku <<");
+
+        jLabel1.setText("Proizvodi računa:");
+
+        jLabel2.setText("Ukupno:");
+
+        lblUkupnaCijena.setText("jLabel3");
+
+        jLabel3.setText("Količina:");
+
+        txtKolicina.setText("1");
+
+        jLabel4.setText("Broj računa: ");
+
+        lblBrojRacuna.setText("   ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,6 +140,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPotvrdi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -85,23 +149,69 @@ public class NoviRacunForma extends javax.swing.JFrame {
                                 .addComponent(btnTrazi, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
                             .addComponent(btnPrikaziSveProizvode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(0, 367, Short.MAX_VALUE))
-                    .addComponent(btnPotvrdi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnObrisiStavku, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(btnDodajStavku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(txtKolicina, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblUkupnaCijena, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblBrojRacuna)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPronadiProizvod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTrazi))
-                .addGap(5, 5, 5)
-                .addComponent(btnPrikaziSveProizvode)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPronadiProizvod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnTrazi))
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(lblBrojRacuna))
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnPrikaziSveProizvode)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPotvrdi)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(lblUkupnaCijena))
+                                .addGap(0, 4, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPotvrdi))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
+                        .addComponent(btnDodajStavku)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnObrisiStavku)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -117,16 +227,55 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void btnPotvrdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPotvrdiActionPerformed
         
+        //TODO
         
     }//GEN-LAST:event_btnPotvrdiActionPerformed
 
+    private void btnTraziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraziActionPerformed
+        DefaultListModel<Proizvod> m = new DefaultListModel<>();
+        m.addAll(obradaProizvod.getPodaci(txtPronadiProizvod.getText()));
+        lstSviProizvodi.setModel(m);
+    }//GEN-LAST:event_btnTraziActionPerformed
+
+    private void txtPronadiProizvodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPronadiProizvodMouseClicked
+        txtPronadiProizvod.setText("");
+    }//GEN-LAST:event_txtPronadiProizvodMouseClicked
+
+    private void btnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajStavkuActionPerformed
+        
+        obradaStavka.setEntitet(new Stavka());
+        postaviVrijednostiNaStavku();
+        
+        try {
+            obradaStavka.create();
+        } catch (ZavrsniRadException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
+        }
+        
+        txtKolicina.setText("1");
+        
+        ucitajProizvodeRacuna();
+        
+    }//GEN-LAST:event_btnDodajStavkuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodajStavku;
+    private javax.swing.JButton btnObrisiStavku;
     private javax.swing.JToggleButton btnPotvrdi;
     private javax.swing.JButton btnPrikaziSveProizvode;
     private javax.swing.JButton btnTrazi;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblBrojRacuna;
+    private javax.swing.JLabel lblUkupnaCijena;
+    private javax.swing.JList<Proizvod> lstProizvodiRacuna;
     private javax.swing.JList<Proizvod> lstSviProizvodi;
+    private javax.swing.JTextField txtKolicina;
     private javax.swing.JTextField txtPronadiProizvod;
     // End of variables declaration//GEN-END:variables
 
@@ -138,5 +287,33 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         lstSviProizvodi.setModel(m);
         
+    }
+
+    private void postaviVrijednostiNaStavku() {
+        
+        var entitet = obradaStavka.getEntitet();
+        
+        entitet.setProizvod(lstSviProizvodi.getSelectedValue());
+        
+        entitet.setKolicina(new BigDecimal(txtKolicina.getText()));
+        
+        entitet.setRacun(obradaRacun.getEntitet());
+        
+    }
+
+    private void postaviDjelatnikaNaRacun() {
+        
+        var entitet = obradaRacun.getEntitet();
+        
+        entitet.setDjelatnik(Aplikacija.djelatnik);
+    }
+
+    private void ucitajProizvodeRacuna() {
+        
+        // TODO
+        
+        //DefaultListModel<Proizvod> m = new DefaultListModel<>();
+       // m.addAll(obradaProizvod.getPodaci(obradaRacun.getEntitet().getSifra()));
+        //lstProizvodiRacuna.setModel(m);
     }
 }

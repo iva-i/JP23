@@ -10,6 +10,7 @@ edunova\zavrsni\view\Autorizacija$2.class
 edunova\zavrsni\view\ProizvodiForma$7.class
 edunova\zavrsni\view\PromjeniLozinkuDjelatnikaForma.class
 edunova\zavrsni\view\KupciForma.class
+edunova\zavrsni\view\NoviRacunForma$3.class
 edunova\zavrsni\view\KupciForma$4.class
 edunova\zavrsni\view\KupciForma$7.class
 edunova\zavrsni\view\NoviRacunForma$2.class
@@ -38,6 +39,7 @@ edunova\zavrsni\view\KupciForma$6.class
 edunova\zavrsni\model\Djelatnik.class
 edunova\zavrsni\view\KupciForma$9.class
 edunova\zavrsni\view\Aplikacija.class
+edunova\zavrsni\view\NoviRacunForma$5.class
 edunova\zavrsni\view\ProizvodiForma$2.class
 edunova\zavrsni\view\ProizvodiForma$5.class
 edunova\zavrsni\view\Izbornik$4.class
@@ -55,6 +57,8 @@ edunova\zavrsni\util\HibernateUtil.class
 edunova\zavrsni\view\KupciForma$5.class
 edunova\zavrsni\model\Stavka.class
 edunova\zavrsni\view\KupciForma$8.class
+edunova\zavrsni\view\IzbornikPokusajTreci$4.class
+edunova\zavrsni\view\NoviRacunForma$4.class
 edunova\zavrsni\view\SplashScreen$Ucitanje.class
 edunova\zavrsni\view\Autorizacija$1.class
 edunova\zavrsni\view\ProizvodiForma$6.class

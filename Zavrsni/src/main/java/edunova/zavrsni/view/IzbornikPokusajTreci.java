@@ -40,6 +40,7 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblProizvodi = new javax.swing.JLabel();
         lblKupci = new javax.swing.JLabel();
         btnKreirajNoviRacun = new javax.swing.JButton();
+        lblPromjeniTrenutnogDjelatnika = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +67,14 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
+        lblPromjeniTrenutnogDjelatnika.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblPromjeniTrenutnogDjelatnika.setText("Promjeni trenutnog djelatnika");
+        lblPromjeniTrenutnogDjelatnika.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblPromjeniTrenutnogDjelatnikaMouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,15 +83,20 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                        .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
-                .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
@@ -103,32 +117,31 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
     }//GEN-LAST:event_lblKupciMouseReleased
 
     private void btnKreirajNoviRacunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKreirajNoviRacunActionPerformed
-        
-        obradaRacun.setEntitet(new Racun());
-        
-        postaviDjelatnikaNaRacun();
-        
-        try {
-            obradaRacun.create();
-        } catch (ZavrsniRadException ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
-        }
-        
+                
         new NoviRacunForma().setVisible(true);
     }//GEN-LAST:event_btnKreirajNoviRacunActionPerformed
+
+    private void lblPromjeniTrenutnogDjelatnikaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniTrenutnogDjelatnikaMouseReleased
+        
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Želiš li promjeniti djelatnika?", "FrameToClose", JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            dispose();
+            new SplashScreen().setVisible(true);
+        } else {
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        }
+        
+    }//GEN-LAST:event_lblPromjeniTrenutnogDjelatnikaMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKreirajNoviRacun;
     private javax.swing.JLabel lblKupci;
     private javax.swing.JLabel lblProizvodi;
+    private javax.swing.JLabel lblPromjeniTrenutnogDjelatnika;
     // End of variables declaration//GEN-END:variables
 
-    private void postaviDjelatnikaNaRacun() {
-        
-        var entitet = obradaRacun.getEntitet();
-        
-        entitet.setDjelatnik(Aplikacija.djelatnik);
-        
-    }
+  
 }

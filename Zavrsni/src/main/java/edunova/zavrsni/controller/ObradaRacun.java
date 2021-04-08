@@ -14,7 +14,7 @@ import java.util.List;
  * @author Skec
  */
 public class ObradaRacun extends Obrada<Racun>{
-
+    
     @Override
     public List<Racun> getPodaci() {
         return session.createQuery("from Racun").list(); 
