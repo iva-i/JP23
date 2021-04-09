@@ -9,6 +9,8 @@ import edunova.zavrsni.controller.ObradaRacun;
 import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +28,24 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         initComponents();
         obradaRacun = new ObradaRacun();
         setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
+        new Vrijeme().start();
+    }
+    
+    private class Vrijeme extends Thread{
+        
+        private SimpleDateFormat df = new SimpleDateFormat("dd. MMMM YYYY. HH:mm:ss");
+
+        @Override
+        public void run() {
+            while (true) {                
+                lblVrijeme.setText(df.format(new Date()));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                }
+            }
+        }
+        
     }
 
     /**
@@ -40,14 +60,15 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblProizvodi = new javax.swing.JLabel();
         lblKupci = new javax.swing.JLabel();
         btnKreirajNoviRacun = new javax.swing.JButton();
-        lblPromjeniLozinkuDjelatnika = new javax.swing.JLabel();
         lblRacuni = new javax.swing.JLabel();
         lblONama = new javax.swing.JLabel();
         lblPromjeniTrenutnogDjelatnika = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        lblVrijeme = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblProizvodi.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblProizvodi.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         lblProizvodi.setText("→ Proizvodi");
         lblProizvodi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblProizvodi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -56,7 +77,7 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
-        lblKupci.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblKupci.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         lblKupci.setText("→ Kupci");
         lblKupci.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblKupci.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -65,6 +86,7 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
+        btnKreirajNoviRacun.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         btnKreirajNoviRacun.setText("Kreiraj novi račun");
         btnKreirajNoviRacun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,16 +94,7 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
-        lblPromjeniLozinkuDjelatnika.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        lblPromjeniLozinkuDjelatnika.setText("Promjeni lozinku djelatnika ←");
-        lblPromjeniLozinkuDjelatnika.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblPromjeniLozinkuDjelatnika.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                lblPromjeniLozinkuDjelatnikaMouseReleased(evt);
-            }
-        });
-
-        lblRacuni.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblRacuni.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         lblRacuni.setText("→ Računi");
         lblRacuni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRacuni.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,51 +121,51 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
+        jToolBar1.setRollover(true);
+
+        lblVrijeme.setText("vrijeme");
+        jToolBar1.add(lblVrijeme);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPromjeniTrenutnogDjelatnika))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(169, 169, 169)
-                                .addComponent(lblPromjeniLozinkuDjelatnika)))
-                        .addGap(33, 33, 33))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblONama)
-                            .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblPromjeniTrenutnogDjelatnika))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(332, 332, 332)
+                        .addComponent(lblONama)))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPromjeniLozinkuDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblONama, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(btnKreirajNoviRacun)
-                .addGap(66, 66, 66))
+                .addGap(38, 38, 38))
         );
 
         pack();
@@ -171,24 +184,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         new NoviRacunForma().setVisible(true);
     }//GEN-LAST:event_btnKreirajNoviRacunActionPerformed
 
-    private void lblPromjeniLozinkuDjelatnikaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniLozinkuDjelatnikaMouseReleased
-        
-        int selectedOption = JOptionPane.showConfirmDialog(null,
-            "Želiš li promjeniti lozinku djelatnika?", "FrameToClose", JOptionPane.YES_NO_OPTION);
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            new PromjeniLozinkuDjelatnikaForma().setVisible(true);
-        } else {
-            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        }
-        
-    }//GEN-LAST:event_lblPromjeniLozinkuDjelatnikaMouseReleased
-
     private void lblRacuniMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRacuniMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRacuniMouseReleased
 
     private void lblONamaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblONamaMouseReleased
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "© " + Aplikacija.NASLOV_APP + "\n programmed by: Iva Ivezić" );
     }//GEN-LAST:event_lblONamaMouseReleased
 
     private void lblPromjeniTrenutnogDjelatnikaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniTrenutnogDjelatnikaMouseReleased
@@ -207,12 +208,13 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKreirajNoviRacun;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblKupci;
     private javax.swing.JLabel lblONama;
     private javax.swing.JLabel lblProizvodi;
-    private javax.swing.JLabel lblPromjeniLozinkuDjelatnika;
     private javax.swing.JLabel lblPromjeniTrenutnogDjelatnika;
     private javax.swing.JLabel lblRacuni;
+    private javax.swing.JLabel lblVrijeme;
     // End of variables declaration//GEN-END:variables
 
   

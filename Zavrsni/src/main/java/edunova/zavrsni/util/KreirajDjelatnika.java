@@ -31,7 +31,7 @@ public class KreirajDjelatnika {
 //        }
         
         Djelatnik djelatnik2 = new Djelatnik();
-        djelatnik2.setIme("iva");
+        djelatnik2.setIme("djelatnik");
         djelatnik2.setSifraDjelatnika(BCrypt.hashpw("1234", BCrypt.gensalt()));
         
         oo.setEntitet(djelatnik2);
