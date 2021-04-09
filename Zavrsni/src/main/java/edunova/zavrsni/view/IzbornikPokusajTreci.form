@@ -26,15 +26,33 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblKupci" min="-2" pref="104" max="-2" attributes="0"/>
-                  <Component id="btnKreirajNoviRacun" alignment="0" min="-2" pref="512" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblProizvodi" min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lblPromjeniTrenutnogDjelatnika" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblRacuni" min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lblKupci" min="-2" pref="104" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                              <Component id="lblPromjeniLozinkuDjelatnika" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblProizvodi" min="-2" pref="104" max="-2" attributes="0"/>
-                      <EmptySpace pref="182" max="32767" attributes="0"/>
-                      <Component id="lblPromjeniTrenutnogDjelatnika" min="-2" pref="261" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblONama" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnKreirajNoviRacun" min="-2" pref="512" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,9 +64,17 @@
                   <Component id="lblProizvodi" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="lblPromjeniTrenutnogDjelatnika" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblKupci" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace pref="156" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblKupci" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="lblPromjeniLozinkuDjelatnika" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblRacuni" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="lblONama" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
               <Component id="btnKreirajNoviRacun" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
           </Group>
@@ -61,7 +87,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="20" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Proizvodi"/>
+        <Property name="text" type="java.lang.String" value="&#x2192; Proizvodi"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblProizvodiMouseReleased"/>
@@ -72,7 +101,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="20" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Kupci"/>
+        <Property name="text" type="java.lang.String" value="&#x2192; Kupci"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblKupciMouseReleased"/>
@@ -86,12 +118,57 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKreirajNoviRacunActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JLabel" name="lblPromjeniLozinkuDjelatnika">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Promjeni lozinku djelatnika &#x2190;"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPromjeniLozinkuDjelatnikaMouseReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRacuni">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x2192; Ra&#x10d;uni"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRacuniMouseReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblONama">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="O nama &#x2190;"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblONamaMouseReleased"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JLabel" name="lblPromjeniTrenutnogDjelatnika">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="20" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Promjeni trenutnog djelatnika"/>
+        <Property name="text" type="java.lang.String" value="Promjeni trenutnog djelatnika &#x2190;"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPromjeniTrenutnogDjelatnikaMouseReleased"/>

@@ -7,6 +7,7 @@ edunova\zavrsni\model\Proizvod.class
 edunova\zavrsni\controller\Obrada.class
 edunova\zavrsni\controller\ObradaProizvod.class
 edunova\zavrsni\view\NoviRacunForma$6.class
+edunova\zavrsni\view\IzbornikPokusajTreci$5.class
 edunova\zavrsni\view\Autorizacija$2.class
 edunova\zavrsni\view\ProizvodiForma$7.class
 edunova\zavrsni\view\PromjeniLozinkuDjelatnikaForma.class
@@ -20,6 +21,7 @@ edunova\zavrsni\model\Racun.class
 edunova\zavrsni\view\IzbornikPokusajTreci$3.class
 edunova\zavrsni\util\InitialFixtures.class
 edunova\zavrsni\view\IzbornikPokusajTreci.class
+edunova\zavrsni\view\IzbornikPokusajTreci$6.class
 edunova\zavrsni\view\ProizvodiForma$4.class
 edunova\zavrsni\controller\ObradaDjelatnik.class
 edunova\zavrsni\view\Autorizacija$3.class
@@ -29,13 +31,14 @@ edunova\zavrsni\view\ProizvodiForma$1.class
 edunova\zavrsni\view\Izbornik$3.class
 edunova\zavrsni\view\KupciForma$3.class
 edunova\zavrsni\util\Test.class
+edunova\zavrsni\view\NoviRacunForma$9.class
 edunova\zavrsni\view\Autorizacija.class
 edunova\zavrsni\model\Entitet.class
 edunova\zavrsni\util\ZavrsniRadException.class
 edunova\zavrsni\view\NoviRacunForma$8.class
-edunova\zavrsni\view\PromjeniLozinkuDjelatnikaForma$2.class
 edunova\zavrsni\view\NoviRacunForma$1.class
 edunova\zavrsni\rad\Start.class
+edunova\zavrsni\view\IzbornikPokusajTreci$7.class
 edunova\zavrsni\view\ProizvodiForma$8.class
 edunova\zavrsni\view\KupciForma$6.class
 edunova\zavrsni\model\Djelatnik.class

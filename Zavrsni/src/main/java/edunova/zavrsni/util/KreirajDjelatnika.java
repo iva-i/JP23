@@ -17,21 +17,21 @@ public class KreirajDjelatnika {
     
     public static void main(String[] args) {
         
-        Djelatnik djelatnik1 = new Djelatnik();
-        djelatnik1.setIme("Iva");
-        djelatnik1.setSifraDjelatnika(BCrypt.hashpw("1234", BCrypt.gensalt()));
-        
-        ObradaDjelatnik oo = new ObradaDjelatnik();
-        oo.setEntitet(djelatnik1);
-        
-        try {
-            oo.create();
-        } catch (ZavrsniRadException e) {
-            System.out.println(e.getMessage());
-        }
+//        Djelatnik djelatnik1 = new Djelatnik();
+//        djelatnik1.setIme("Iva");
+//        djelatnik1.setSifraDjelatnika(BCrypt.hashpw("1234", BCrypt.gensalt()));
+//        
+          ObradaDjelatnik oo = new ObradaDjelatnik();
+//        oo.setEntitet(djelatnik1);
+//        
+//        try {
+//            oo.create();
+//        } catch (ZavrsniRadException e) {
+//            System.out.println(e.getMessage());
+//        }
         
         Djelatnik djelatnik2 = new Djelatnik();
-        djelatnik2.setIme("Zvonimir");
+        djelatnik2.setIme("iva");
         djelatnik2.setSifraDjelatnika(BCrypt.hashpw("1234", BCrypt.gensalt()));
         
         oo.setEntitet(djelatnik2);

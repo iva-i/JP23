@@ -32,6 +32,15 @@ public class ObradaProizvod extends Obrada<Proizvod>{
                 .setMaxResults(50)
                 .list();
     }
+    
+//    public List<Proizvod> getStavkeRacuna(String brojRacuna){
+//    
+//         return session.createQuery("from Stavka s "
+//                + " where s.proizvod"
+//                + " = :uvjet")
+//                .setParameter("uvjet", brojRacuna)
+//                .list();
+//    }
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {

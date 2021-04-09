@@ -40,12 +40,16 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblProizvodi = new javax.swing.JLabel();
         lblKupci = new javax.swing.JLabel();
         btnKreirajNoviRacun = new javax.swing.JButton();
+        lblPromjeniLozinkuDjelatnika = new javax.swing.JLabel();
+        lblRacuni = new javax.swing.JLabel();
+        lblONama = new javax.swing.JLabel();
         lblPromjeniTrenutnogDjelatnika = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblProizvodi.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        lblProizvodi.setText("Proizvodi");
+        lblProizvodi.setText("→ Proizvodi");
+        lblProizvodi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblProizvodi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblProizvodiMouseReleased(evt);
@@ -53,7 +57,8 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         });
 
         lblKupci.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        lblKupci.setText("Kupci");
+        lblKupci.setText("→ Kupci");
+        lblKupci.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblKupci.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblKupciMouseReleased(evt);
@@ -67,8 +72,36 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             }
         });
 
+        lblPromjeniLozinkuDjelatnika.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblPromjeniLozinkuDjelatnika.setText("Promjeni lozinku djelatnika ←");
+        lblPromjeniLozinkuDjelatnika.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblPromjeniLozinkuDjelatnika.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblPromjeniLozinkuDjelatnikaMouseReleased(evt);
+            }
+        });
+
+        lblRacuni.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblRacuni.setText("→ Računi");
+        lblRacuni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRacuni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblRacuniMouseReleased(evt);
+            }
+        });
+
+        lblONama.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        lblONama.setText("O nama ←");
+        lblONama.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblONama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                lblONamaMouseReleased(evt);
+            }
+        });
+
         lblPromjeniTrenutnogDjelatnika.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        lblPromjeniTrenutnogDjelatnika.setText("Promjeni trenutnog djelatnika");
+        lblPromjeniTrenutnogDjelatnika.setText("Promjeni trenutnog djelatnika ←");
+        lblPromjeniTrenutnogDjelatnika.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblPromjeniTrenutnogDjelatnika.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblPromjeniTrenutnogDjelatnikaMouseReleased(evt);
@@ -82,13 +115,25 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPromjeniTrenutnogDjelatnika))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(169, 169, 169)
+                                .addComponent(lblPromjeniLozinkuDjelatnika)))
+                        .addGap(33, 33, 33))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
-                        .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblONama)
+                            .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,9 +142,15 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPromjeniLozinkuDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblONama, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(btnKreirajNoviRacun)
                 .addGap(66, 66, 66))
         );
@@ -117,9 +168,28 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
     }//GEN-LAST:event_lblKupciMouseReleased
 
     private void btnKreirajNoviRacunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKreirajNoviRacunActionPerformed
-                
         new NoviRacunForma().setVisible(true);
     }//GEN-LAST:event_btnKreirajNoviRacunActionPerformed
+
+    private void lblPromjeniLozinkuDjelatnikaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniLozinkuDjelatnikaMouseReleased
+        
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Želiš li promjeniti lozinku djelatnika?", "FrameToClose", JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            new PromjeniLozinkuDjelatnikaForma().setVisible(true);
+        } else {
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        }
+        
+    }//GEN-LAST:event_lblPromjeniLozinkuDjelatnikaMouseReleased
+
+    private void lblRacuniMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRacuniMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblRacuniMouseReleased
+
+    private void lblONamaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblONamaMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblONamaMouseReleased
 
     private void lblPromjeniTrenutnogDjelatnikaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniTrenutnogDjelatnikaMouseReleased
         
@@ -132,15 +202,17 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         } else {
             setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         }
-        
     }//GEN-LAST:event_lblPromjeniTrenutnogDjelatnikaMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKreirajNoviRacun;
     private javax.swing.JLabel lblKupci;
+    private javax.swing.JLabel lblONama;
     private javax.swing.JLabel lblProizvodi;
+    private javax.swing.JLabel lblPromjeniLozinkuDjelatnika;
     private javax.swing.JLabel lblPromjeniTrenutnogDjelatnika;
+    private javax.swing.JLabel lblRacuni;
     // End of variables declaration//GEN-END:variables
 
   

@@ -54,17 +54,12 @@ public class Stavka extends Entitet{
         this.kolicina = kolicina;
     }
 
-    public BigDecimal getCijena() {
-        return cijena;
-    }
-
     /**
      * Metoda sama računa iznos!
      */
-    public void setCijena() {
-        this.cijena = proizvod.getCijena().multiply(this.kolicina);
-    }
-    
+    public BigDecimal getCijena() {
+        return proizvod.getCijena().multiply(this.kolicina);
+    }  
     
     
 }

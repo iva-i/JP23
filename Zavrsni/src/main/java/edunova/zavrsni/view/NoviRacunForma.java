@@ -15,6 +15,7 @@ import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -128,6 +129,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
         });
 
         btnObrisiStavku.setText("<< Obriši stavku <<");
+        btnObrisiStavku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiStavkuActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Proizvodi računa:");
 
@@ -312,7 +318,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
         
         txtKolicina.setText("1");
         
-        //ucitajProizvodeRacuna();
+//        ucitajProizvodeRacuna();
         
     }//GEN-LAST:event_btnDodajStavkuActionPerformed
 
@@ -332,6 +338,23 @@ public class NoviRacunForma extends javax.swing.JFrame {
         
         ucitajSveKupce();
     }//GEN-LAST:event_btnPrikaziSveKupceActionPerformed
+
+    private void btnObrisiStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiStavkuActionPerformed
+        
+        // Treba doraditi, briše stavku i ako je odabrana na listi svih proizvoda
+        
+        if (obradaStavka.getEntitet() == null || obradaStavka.getEntitet().getSifra() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite stavku");
+            return;
+        }
+
+        try {
+            obradaStavka.delete();
+            //ucitajProizvodeRacuna();
+        } catch (ZavrsniRadException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        }
+    }//GEN-LAST:event_btnObrisiStavkuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -353,7 +376,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private javax.swing.JLabel lblBrojRacuna;
     private javax.swing.JLabel lblUkupnaCijena;
     private javax.swing.JList<Kupac> lstKupci;
-    private javax.swing.JList<Stavka> lstStavkeRacuna;
+    private javax.swing.JList<Proizvod> lstStavkeRacuna;
     private javax.swing.JList<Proizvod> lstSviProizvodi;
     private javax.swing.JTextField txtKolicina;
     private javax.swing.JTextField txtPronadiKupca;
@@ -371,10 +394,8 @@ public class NoviRacunForma extends javax.swing.JFrame {
         
         var entitet = obradaStavka.getEntitet();
         
-        entitet.setProizvod(lstSviProizvodi.getSelectedValue());
-        
-        entitet.setKolicina(new BigDecimal(txtKolicina.getText()));
-        
+        entitet.setProizvod(lstSviProizvodi.getSelectedValue());        
+        entitet.setKolicina(new BigDecimal(txtKolicina.getText()));        
         entitet.setRacun(obradaRacun.getEntitet());
         
     }
@@ -385,14 +406,12 @@ public class NoviRacunForma extends javax.swing.JFrame {
         entitet.setDjelatnik(Aplikacija.djelatnik);
     }
 
-    private void ucitajProizvodeRacuna() {
-        
-        // TODO
-        
-//        DefaultListModel<Stavka> m = new DefaultListModel<>();
-//        m.addAll(obradaStavka.getPodaci(obradaRacun.getEntitet().toString()));
-//        lstStavkeRacuna.setModel(m);
-    }
+//    private void ucitajProizvodeRacuna() {
+//        
+//        DefaultListModel<Proizvod> m = new DefaultListModel<>();
+//        m.addAll(obradaProizvod.getStavkeRacuna(lblBrojRacuna.toString()));
+//        lstStavkeRacuna.setModel(m); 
+//    }
 
     private void ucitajSveKupce() {
         

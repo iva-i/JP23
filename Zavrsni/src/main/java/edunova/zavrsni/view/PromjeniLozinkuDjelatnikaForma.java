@@ -44,25 +44,19 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtStaraLozinka = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtNovaLozinka = new javax.swing.JTextField();
         btnPromjeniLozinku = new javax.swing.JButton();
         lblImeDjelatnika = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNovaLozinkaPotvrda = new javax.swing.JTextField();
+        pswNovaLozinka = new javax.swing.JPasswordField();
+        pswNovaLozinkaPotvrda = new javax.swing.JPasswordField();
+        pswStaraLozinka = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Ime djelatnika:");
 
         jLabel3.setText("Unesi staru lozinku:");
-
-        txtStaraLozinka.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtStaraLozinkaKeyReleased(evt);
-            }
-        });
 
         jLabel4.setText("Unesi novu lozinku:");
 
@@ -75,25 +69,30 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
         jLabel5.setText("Potvrdi novu lozinku:");
 
+        pswNovaLozinka.setText("jPasswordField1");
+
+        pswNovaLozinkaPotvrda.setText("jPasswordField1");
+
+        pswStaraLozinka.setText("jPasswordField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnPromjeniLozinku, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-                        .addComponent(txtNovaLozinka)
-                        .addComponent(txtStaraLozinka)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtNovaLozinkaPotvrda)))
+                    .addComponent(btnPromjeniLozinku, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblImeDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pswNovaLozinka)
+                    .addComponent(pswNovaLozinkaPotvrda)
+                    .addComponent(pswStaraLozinka))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,15 +105,15 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtStaraLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswStaraLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswNovaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovaLozinkaPotvrda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pswNovaLozinkaPotvrda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPromjeniLozinku)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -123,13 +122,6 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtStaraLozinkaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStaraLozinkaKeyReleased
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            promjeniLozinku();
-           txtStaraLozinka.requestFocus();
-        }
-    }//GEN-LAST:event_txtStaraLozinkaKeyReleased
 
     private void btnPromjeniLozinkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniLozinkuActionPerformed
         
@@ -151,43 +143,43 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblImeDjelatnika;
-    private javax.swing.JTextField txtNovaLozinka;
-    private javax.swing.JTextField txtNovaLozinkaPotvrda;
-    private javax.swing.JTextField txtStaraLozinka;
+    private javax.swing.JPasswordField pswNovaLozinka;
+    private javax.swing.JPasswordField pswNovaLozinkaPotvrda;
+    private javax.swing.JPasswordField pswStaraLozinka;
     // End of variables declaration//GEN-END:variables
 
     private void promjeniLozinku(){
+        
         try{
-            if(txtStaraLozinka.getText().isEmpty()){
-                obradiGresku(txtStaraLozinka, "Obavezno stara lozinka!");
+            if(pswStaraLozinka.toString().isEmpty()){
+                obradiGresku(pswStaraLozinka, "Obavezno stara lozinka!");
                 return;
             }          
 
-            if(txtNovaLozinka.getText().isEmpty()){
-                obradiGresku(txtNovaLozinka, "Obavezno nova lozinka!");
+            if(pswNovaLozinka.toString().isEmpty()){
+                obradiGresku(pswNovaLozinka, "Obavezno nova lozinka!");
                 return;
             }
             
-            if(txtNovaLozinkaPotvrda.getText().isEmpty()){
-                obradiGresku(txtNovaLozinkaPotvrda, "Obavezno potvrda nove lozinke!");
+            if(pswNovaLozinkaPotvrda.toString().isEmpty()){
+                obradiGresku(pswNovaLozinkaPotvrda, "Obavezno potvrda nove lozinke!");
                 return;
             }
             
-            if(txtNovaLozinka.getText() != txtNovaLozinkaPotvrda.getText()){
-                obradiGresku(txtNovaLozinka, "Nova lozinka se ne podudara!");
-                return;
-            }
-
-            ObradaDjelatnik oo = new ObradaDjelatnik();
-            Djelatnik o = oo.autoriziraj(Aplikacija.djelatnik.getIme(), txtStaraLozinka.getText().toCharArray());
+//            if(pswNovaLozinka.toString() != pswNovaLozinkaPotvrda.toString()){
+//                obradiGresku(pswNovaLozinka, "Nova lozinka se ne podudara!");
+//                return;
+//            }
+            
+            Djelatnik o = obrada.autoriziraj(Aplikacija.djelatnik.getIme(), pswStaraLozinka.toString().toCharArray());
 
             if(o==null){
-                obradiGresku(txtStaraLozinka, "Ime i lozinka ne odgovaraju");
+                obradiGresku(pswStaraLozinka, "Ime i lozinka ne odgovaraju");
                 return;
             } 
 
         }catch(Exception e){
-            obradiGresku(txtStaraLozinka, "Krivi unos!");
+            obradiGresku(pswStaraLozinka, "Krivi unos!");
         }
     }
     
@@ -198,13 +190,22 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
     
     private void postaviVrijednostiNaEntitet() {
         
-        var entitet = obrada.getEntitet();
+        promjeniLozinku();
+           
+        try {
+            Aplikacija.djelatnik.setSifraDjelatnika(BCrypt.hashpw(pswNovaLozinka.toString(), BCrypt.gensalt()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            obradiGresku(pswNovaLozinka, "Greška - nova lozinka");
+        } 
+        
+        obrada.setEntitet(Aplikacija.djelatnik);
         
         try {
-            entitet.setSifraDjelatnika(BCrypt.hashpw(txtNovaLozinka.getText(), BCrypt.gensalt()));
-        } catch (Exception e) {
-            obradiGresku(txtNovaLozinka, "Greška - nova lozinka");
-        }        
+            obrada.update();
+        } catch (ZavrsniRadException e) {
+            System.out.println(e.getMessage());
+        }      
         
     }
 

@@ -25,21 +25,19 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnPromjeniLozinku" pref="383" max="32767" attributes="0"/>
-                      <Component id="txtNovaLozinka" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtStaraLozinka" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblImeDjelatnika" min="-2" pref="103" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="txtNovaLozinkaPotvrda" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnPromjeniLozinku" pref="383" max="32767" attributes="0"/>
+                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblImeDjelatnika" min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="pswNovaLozinka" alignment="0" max="32767" attributes="0"/>
+                  <Component id="pswNovaLozinkaPotvrda" max="32767" attributes="0"/>
+                  <Component id="pswStaraLozinka" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
@@ -56,16 +54,16 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtStaraLozinka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="pswStaraLozinka" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtNovaLozinka" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="pswNovaLozinka" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtNovaLozinkaPotvrda" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="pswNovaLozinkaPotvrda" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="btnPromjeniLozinku" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
@@ -83,17 +81,10 @@
         <Property name="text" type="java.lang.String" value="Unesi staru lozinku:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtStaraLozinka">
-      <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStaraLozinkaKeyReleased"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="Unesi novu lozinku:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNovaLozinka">
     </Component>
     <Component class="javax.swing.JButton" name="btnPromjeniLozinku">
       <Properties>
@@ -110,7 +101,20 @@
         <Property name="text" type="java.lang.String" value="Potvrdi novu lozinku:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNovaLozinkaPotvrda">
+    <Component class="javax.swing.JPasswordField" name="pswNovaLozinka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pswNovaLozinkaPotvrda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pswStaraLozinka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
