@@ -64,5 +64,11 @@ public class Racun extends Entitet{
     public void setRabat(BigDecimal rabat) {
         this.rabat = rabat;
     }   
+
+    @Override
+    public String toString() {
+        return super.toString(); 
+    }
+    
     
 }

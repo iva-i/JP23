@@ -21,6 +21,7 @@ edunova\zavrsni\model\Racun.class
 edunova\zavrsni\view\IzbornikPokusajTreci$3.class
 edunova\zavrsni\util\InitialFixtures.class
 edunova\zavrsni\view\IzbornikPokusajTreci.class
+edunova\zavrsni\view\RacuniForma.class
 edunova\zavrsni\view\IzbornikPokusajTreci$6.class
 edunova\zavrsni\view\ProizvodiForma$4.class
 edunova\zavrsni\controller\ObradaDjelatnik.class

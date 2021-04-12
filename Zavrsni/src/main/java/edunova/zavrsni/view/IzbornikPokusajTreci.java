@@ -185,7 +185,7 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKreirajNoviRacunActionPerformed
 
     private void lblRacuniMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRacuniMouseReleased
-        // TODO add your handling code here:
+        new RacuniForma().setVisible(true);
     }//GEN-LAST:event_lblRacuniMouseReleased
 
     private void lblONamaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblONamaMouseReleased
