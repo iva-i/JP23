@@ -15,6 +15,7 @@ import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -37,7 +38,9 @@ public class NoviRacunForma extends javax.swing.JFrame {
         initComponents();
         obradaProizvod = new ObradaProizvod();
         obradaRacun = new ObradaRacun();
-        obradaRacun.setEntitet(new Racun());
+        Racun racun = new Racun();
+        obradaRacun.setEntitet(racun);
+        
         postaviDjelatnikaNaRacun();
         
         try {
@@ -307,19 +310,21 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void btnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajStavkuActionPerformed
         
-        obradaStavka.setEntitet(new Stavka());
-        postaviVrijednostiNaStavku();
-        
+        Stavka stavka = new Stavka();
+        obradaStavka.setEntitet(stavka);        
+             
+        postaviVrijednostiNaStavku();        
+               
         try {
             obradaStavka.create();
+            obradaRacun.update();
         } catch (ZavrsniRadException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
-        }
-        
+        }       
+                     
         txtKolicina.setText("1");
         
-//        ucitajProizvodeRacuna();
-        
+        ucitajProizvodeRacuna();        
     }//GEN-LAST:event_btnDodajStavkuActionPerformed
 
     private void txtPronadiKupcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPronadiKupcaMouseClicked
@@ -350,7 +355,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         try {
             obradaStavka.delete();
-            //ucitajProizvodeRacuna();
+            ucitajProizvodeRacuna();
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
@@ -406,12 +411,40 @@ public class NoviRacunForma extends javax.swing.JFrame {
         entitet.setDjelatnik(Aplikacija.djelatnik);
     }
 
-//    private void ucitajProizvodeRacuna() {
+    private void ucitajProizvodeRacuna() {
+        
+        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
+        List<Proizvod> proizvodi = new ArrayList<>();
+        
+        for(int i = 0; i < stavke.size(); i++){
+            proizvodi.add(stavke.get(i).getProizvod());
+        }
+        
+        DefaultListModel<Proizvod> m = new DefaultListModel<>();
+        m.addAll(proizvodi);
+        lstStavkeRacuna.setModel(m);
+        
+        
+//        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
+//        List<Proizvod> proizvodi = new ArrayList<>();
+//        
+//        for(Stavka stavka : stavke){
+//            proizvodi.add(stavka.getProizvod());
+//        }
 //        
 //        DefaultListModel<Proizvod> m = new DefaultListModel<>();
-//        m.addAll(obradaProizvod.getStavkeRacuna(lblBrojRacuna.toString()));
-//        lstStavkeRacuna.setModel(m); 
-//    }
+//        m.addAll(proizvodi);
+//        lstStavkeRacuna.setModel(m);
+        
+        
+//        DefaultListModel<Proizvod> m = new DefaultListModel<>();
+//        if(m.getSize() == 0){
+//            m.add(m.getSize(),obradaStavka.getEntitet().getProizvod());
+//        }else{
+//            m.add(m.getSize()+1,obradaStavka.getEntitet().getProizvod());
+//        }
+//        lstStavkeRacuna.setModel(m);       
+    }
 
     private void ucitajSveKupce() {
         
