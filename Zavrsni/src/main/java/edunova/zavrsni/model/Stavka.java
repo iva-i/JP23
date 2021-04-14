@@ -60,6 +60,13 @@ public class Stavka extends Entitet{
     public BigDecimal getCijena() {
         return proizvod.getCijena().multiply(this.kolicina);
     }  
+
+    @Override
+    public String toString() {
+        return proizvod.getNaziv();
+    }
+    
+    
     
     
 }
