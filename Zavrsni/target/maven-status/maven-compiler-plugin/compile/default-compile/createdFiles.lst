@@ -13,10 +13,13 @@ edunova\zavrsni\view\ProizvodiForma$7.class
 edunova\zavrsni\view\PromjeniLozinkuDjelatnikaForma.class
 edunova\zavrsni\view\KupciForma.class
 edunova\zavrsni\view\NoviRacunForma$3.class
+edunova\zavrsni\view\DjelatniciForma$1.class
+edunova\zavrsni\view\DjelatniciForma$4.class
 edunova\zavrsni\view\KupciForma$4.class
 edunova\zavrsni\view\KupciForma$7.class
 edunova\zavrsni\view\NoviRacunForma$2.class
 edunova\zavrsni\model\Kupac.class
+edunova\zavrsni\view\DjelatniciForma$3.class
 edunova\zavrsni\model\Racun.class
 edunova\zavrsni\view\IzbornikPokusajTreci$3.class
 edunova\zavrsni\util\InitialFixtures.class
@@ -39,7 +42,9 @@ edunova\zavrsni\util\ZavrsniRadException.class
 edunova\zavrsni\view\NoviRacunForma$8.class
 edunova\zavrsni\view\NoviRacunForma$1.class
 edunova\zavrsni\rad\Start.class
+edunova\zavrsni\view\IzbornikPokusajTreci$7.class
 edunova\zavrsni\view\ProizvodiForma$8.class
+edunova\zavrsni\view\DjelatniciForma$2.class
 edunova\zavrsni\view\KupciForma$6.class
 edunova\zavrsni\model\Djelatnik.class
 edunova\zavrsni\view\KupciForma$9.class
@@ -65,7 +70,9 @@ edunova\zavrsni\view\KupciForma$5.class
 edunova\zavrsni\model\Stavka.class
 edunova\zavrsni\view\KupciForma$8.class
 edunova\zavrsni\view\IzbornikPokusajTreci$4.class
+edunova\zavrsni\view\DjelatniciForma.class
 edunova\zavrsni\view\NoviRacunForma$4.class
+edunova\zavrsni\view\DjelatniciForma$5.class
 edunova\zavrsni\view\SplashScreen$Ucitanje.class
 edunova\zavrsni\view\Autorizacija$1.class
 edunova\zavrsni\view\ProizvodiForma$6.class

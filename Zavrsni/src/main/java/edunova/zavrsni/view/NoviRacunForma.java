@@ -413,16 +413,16 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void ucitajProizvodeRacuna() {
         
-        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
-        List<Proizvod> proizvodi = new ArrayList<>();
-        
-        for(int i = 0; i < stavke.size(); i++){
-            proizvodi.add(stavke.get(i).getProizvod());
-        }
-        
-        DefaultListModel<Proizvod> m = new DefaultListModel<>();
-        m.addAll(proizvodi);
-        lstStavkeRacuna.setModel(m);
+//        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
+//        List<Proizvod> proizvodi = new ArrayList<>();
+//        
+//        for(int i = 0; i < stavke.size(); i++){
+//            proizvodi.add(stavke.get(i).getProizvod());
+//        }
+//        
+//        DefaultListModel<Proizvod> m = new DefaultListModel<>();
+//        m.addAll(proizvodi);
+//        lstStavkeRacuna.setModel(m);
         
         
 //        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
