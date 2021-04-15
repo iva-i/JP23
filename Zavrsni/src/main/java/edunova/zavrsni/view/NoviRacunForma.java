@@ -17,6 +17,7 @@ import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -57,6 +58,8 @@ public class NoviRacunForma extends javax.swing.JFrame {
         lblBrojRacuna.setText(obradaRacun.getEntitet().getSifra().toString());
         
         setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
+        
+        txtUkupno.setEditable(false);
     }
 
     /**
@@ -453,37 +456,46 @@ public class NoviRacunForma extends javax.swing.JFrame {
     }
 
     private void postaviCijenu() {
-        
-        //IZRAČUN NIJE U POTPUNOSTI TOČAN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
+                
         List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
         
         double cj = 0;
         
-        provjeriRabat();
-        
         for(int i = 0; i < stavke.size(); i++){
-            cj += stavke.get(i).getProizvod().getCijena().longValue();
+            cj += stavke.get(i).getProizvod().getCijena().setScale(2, RoundingMode.HALF_EVEN).doubleValue();
         }
         
-        String uk = String.valueOf(cj);
+        double rabat = 1;
         
-        txtUkupno.setText(uk);
+        if(provjeriRabat()){
+            rabat = Double.parseDouble(txtRabat.getText());
+        }
         
+        if(rabat != 0){
+            rabat = 100 - rabat;
+            rabat /= 100;
+            cj *= rabat;
+        }
+        
+        String uk = String.format("%.2f",cj);
+        
+        txtUkupno.setText(uk);        
         
     }
 
-    private BigDecimal provjeriRabat(){
+    private boolean provjeriRabat(){
         
         BigDecimal rabat = new BigDecimal(Double.valueOf(txtRabat.getText()));
+        boolean ispravan = false;
         
         if(rabat.longValue() < 0 || rabat.longValue() > 80){
             JOptionPane.showMessageDialog(rootPane, "Rabat neispravan!");
         }else{
             var entitet = obradaRacun.getEntitet();
             entitet.setRabat(rabat);
+            ispravan = true;
         }
         
-        return rabat;
+        return ispravan;
     }
 }

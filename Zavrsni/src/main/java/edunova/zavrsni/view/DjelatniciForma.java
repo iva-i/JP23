@@ -51,7 +51,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         pswSifraPotvrda = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jScrollPane1.setViewportView(lstDjelatnici);
 

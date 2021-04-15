@@ -67,7 +67,8 @@ public class Racun extends Entitet{
 
     @Override
     public String toString() {
-        return super.toString(); 
+        
+        return "račun br. " + getSifra().toString();
     }
     
     
