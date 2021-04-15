@@ -15,10 +15,6 @@ import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.MathContext;
-import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -311,14 +307,19 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void btnPrikaziSveProizvodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrikaziSveProizvodeActionPerformed
         
-        ucitajSveProizvode();
-        
+        ucitajSveProizvode();        
     }//GEN-LAST:event_btnPrikaziSveProizvodeActionPerformed
 
     private void btnPotvrdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPotvrdiActionPerformed
         
-        //TODO
-        
+        int selectedOption = JOptionPane.showConfirmDialog(null,
+            "Račun spreman?", "FrameToClose", JOptionPane.YES_NO_OPTION);
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            setVisible(false);
+            dispose();
+        } else {
+            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        }        
     }//GEN-LAST:event_btnPotvrdiActionPerformed
 
     private void btnTraziProizvodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraziProizvodActionPerformed
@@ -372,8 +373,6 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void btnObrisiStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiStavkuActionPerformed
         
-        // Treba doraditi, briše stavku i ako je odabrana na listi svih proizvoda
-        
         if (obradaStavka.getEntitet() == null || obradaStavka.getEntitet().getSifra() == null) {
             JOptionPane.showMessageDialog(rootPane, "Prvo odaberite stavku");
             return;
@@ -381,10 +380,12 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         try {
             obradaStavka.delete();
-            ucitajProizvodeRacuna();
+            obradaRacun.update();
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
+        
+        ucitajProizvodeRacuna();
     }//GEN-LAST:event_btnObrisiStavkuActionPerformed
 
 
@@ -460,9 +461,12 @@ public class NoviRacunForma extends javax.swing.JFrame {
         List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
         
         double cj = 0;
+        double cijenaProizvoda = 0;
         
         for(int i = 0; i < stavke.size(); i++){
-            cj += stavke.get(i).getProizvod().getCijena().setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+            cijenaProizvoda = stavke.get(i).getKolicina().doubleValue() *  
+                    stavke.get(i).getProizvod().getCijena().doubleValue();
+            cj += cijenaProizvoda;
         }
         
         double rabat = 1;
@@ -498,4 +502,5 @@ public class NoviRacunForma extends javax.swing.JFrame {
         
         return ispravan;
     }
+
 }

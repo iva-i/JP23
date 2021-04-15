@@ -74,7 +74,7 @@ public class Proizvod extends Entitet{
         if(getNaziv()==null || getNaziv().trim().isEmpty()){
             return "[Naziv nije definiran]";
         }
-        return getNaziv();
+        return getNaziv() + ", " + getCijena().toString();
     }
     
     

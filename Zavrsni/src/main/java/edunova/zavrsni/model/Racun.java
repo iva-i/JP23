@@ -32,7 +32,7 @@ public class Racun extends Entitet{
     
     @OneToMany(mappedBy = "racun")
     private List<Stavka> stavke = new ArrayList<>();
-
+    
     public List<Stavka> getStavke() {
         return stavke;
     }

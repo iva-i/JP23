@@ -66,6 +66,7 @@ edunova\zavrsni\util\KreirajDjelatnika.class
 edunova\zavrsni\controller\ObradaKupac.class
 edunova\zavrsni\controller\ObradaStavka.class
 edunova\zavrsni\util\HibernateUtil.class
+edunova\zavrsni\view\RacuniForma$1.class
 edunova\zavrsni\view\KupciForma$5.class
 edunova\zavrsni\model\Stavka.class
 edunova\zavrsni\view\KupciForma$8.class
