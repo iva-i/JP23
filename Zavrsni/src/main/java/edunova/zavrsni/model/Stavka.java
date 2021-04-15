@@ -63,7 +63,7 @@ public class Stavka extends Entitet{
 
     @Override
     public String toString() {
-        return proizvod.getNaziv();
+        return proizvod.getNaziv() + ", " + proizvod.getCijena() + ", " + getKolicina();
     }
     
     

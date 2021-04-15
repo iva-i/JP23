@@ -34,37 +34,6 @@ public class ObradaStavka extends Obrada<Stavka>{
                 .setMaxResults(50)
                 .list();
     }
-    
-    public List<Proizvod> getStavkeRacuna(String brojRacuna){   
-        
-//         List<Racun> racuni =  session.createQuery("from Racun where sifra = :brojRacuna")
-//            .setParameter("brojRacuna", Long.parseLong(brojRacuna))
-//            .list();
-//         
-//         List<Proizvod> proizvodi = new ArrayList<>();
-//         
-//         for(Racun racun : racuni){
-//             for(Stavka stavka : racun.getStavke()){
-//                 proizvodi.add(stavka.getProizvod());
-//             }
-//         }
-//         
-//         return proizvodi;    
-
-        return null;
-         
-    }
-    
-    /**
-     * select p.sifra
-from proizvod p
-inner join stavka s
-on proizvod_sifra ps
-inner join racun r
-on s.racun_sifra = r.sifra; 
-     *  
-     */
-//    }
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {
@@ -80,5 +49,12 @@ on s.racun_sifra = r.sifra;
     protected void kontrolaDelete() throws ZavrsniRadException {
         
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    
+    
     
 }

@@ -16,6 +16,8 @@ import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -312,14 +314,13 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
     private void btnPotvrdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPotvrdiActionPerformed
         
-        int selectedOption = JOptionPane.showConfirmDialog(null,
-            "Račun spreman?", "FrameToClose", JOptionPane.YES_NO_OPTION);
-        if (selectedOption == JOptionPane.YES_OPTION) {
-            setVisible(false);
+        if(provjeriRacun()){
+            JOptionPane.showMessageDialog(rootPane, "Za platiti: " + txtUkupno.getText());
             dispose();
-        } else {
-            setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        }        
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Upozorenje (nema stavki) - račun neće bit spremljen!");
+            dispose();
+        }
     }//GEN-LAST:event_btnPotvrdiActionPerformed
 
     private void btnTraziProizvodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraziProizvodActionPerformed
@@ -501,6 +502,23 @@ public class NoviRacunForma extends javax.swing.JFrame {
         }
         
         return ispravan;
+    }
+
+    private boolean provjeriRacun() {
+        
+        List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
+        boolean racunOK = true;
+        
+        if(stavke.size() == 0){
+            racunOK = false;
+            try {
+                obradaRacun.delete();
+            } catch (ZavrsniRadException ex) {
+                ex.printStackTrace();
+            }
+        }
+        
+        return racunOK;
     }
 
 }
