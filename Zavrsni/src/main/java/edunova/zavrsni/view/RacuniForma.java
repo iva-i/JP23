@@ -37,6 +37,7 @@ public class RacuniForma extends javax.swing.JFrame {
         txtUkupno.setEditable(false);
         txtKupac.setEditable(false);
         txtDjelatnik.setEditable(false);
+        
     }
 
     /**
@@ -64,6 +65,7 @@ public class RacuniForma extends javax.swing.JFrame {
         txtKupac = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtDjelatnik = new javax.swing.JTextField();
+        cbStorniran = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,6 +96,14 @@ public class RacuniForma extends javax.swing.JFrame {
 
         jLabel6.setText("Djelatnik:");
 
+        cbStorniran.setForeground(new java.awt.Color(255, 0, 0));
+        cbStorniran.setText("Storniran");
+        cbStorniran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbStorniranActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,17 +125,18 @@ public class RacuniForma extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtKupac, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtDjelatnik, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtRabat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5))
-                    .addComponent(txtKupac, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtDjelatnik, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtRabat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(cbStorniran))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +167,9 @@ public class RacuniForma extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
                                     .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)))))
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbStorniran))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,11 +187,20 @@ public class RacuniForma extends javax.swing.JFrame {
         prikaziRabat();
         prikaziKupca();
         prikaziDjelatnika();
+        postaviStorniran();
     }//GEN-LAST:event_btnPrikaziDetaljeRacunaActionPerformed
+
+    private void cbStorniranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStorniranActionPerformed
+        
+        if(cbStorniran.isSelected()){
+            lstPopisRacuna.getSelectedValue().setStorniran(true);
+        }
+    }//GEN-LAST:event_cbStorniranActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnPrikaziDetaljeRacuna;
+    private javax.swing.JCheckBox cbStorniran;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -257,5 +279,14 @@ public class RacuniForma extends javax.swing.JFrame {
     private void prikaziDjelatnika() {
         
         txtDjelatnik.setText(lstPopisRacuna.getSelectedValue().getDjelatnik().toString());
+    }
+
+    private void postaviStorniran() {
+        
+        if(lstPopisRacuna.getSelectedValue().isStorniran()){
+            cbStorniran.setSelected(true);
+        }else{
+            cbStorniran.setSelected(false);
+        }
     }
 }
