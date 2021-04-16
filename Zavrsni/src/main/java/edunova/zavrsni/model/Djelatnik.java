@@ -47,6 +47,11 @@ public class Djelatnik extends Osoba{
     public void setSifraDjelatnika(String sifra) {
         this.sifraDjelatnika = sifra;
     }
+
+    @Override
+    public String toString() {
+        return getIme();
+    }
     
     
     

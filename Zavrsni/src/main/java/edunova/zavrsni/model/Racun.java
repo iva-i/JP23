@@ -29,10 +29,19 @@ public class Racun extends Entitet{
     @ManyToOne
     private Kupac kupac;
     private BigDecimal rabat;
+    private boolean storniran;
     
     @OneToMany(mappedBy = "racun")
     private List<Stavka> stavke = new ArrayList<>();
-    
+
+    public boolean isStorniran() {
+        return storniran;
+    }
+
+    public void setStorniran(boolean storniran) {
+        this.storniran = storniran;
+    }
+      
     public List<Stavka> getStavke() {
         return stavke;
     }

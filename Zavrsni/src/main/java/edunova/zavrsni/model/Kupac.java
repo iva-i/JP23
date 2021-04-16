@@ -35,15 +35,8 @@ public class Kupac extends Osoba{
 
     @Override
     public String toString() {
-        String vrati = "";
         
-        if(getNazivFirme().isEmpty() || getNazivFirme().isBlank() || getNazivFirme() == null){
-            vrati = getIme() + " " + getPrezime();
-        }else{
-            vrati = getIme() + " " + getPrezime() + ", " + getNazivFirme();
-        }
-        
-        return vrati;
+        return getIme() + " " + getPrezime();
     }
     
     

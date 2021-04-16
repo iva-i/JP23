@@ -90,11 +90,14 @@ public class NoviRacunForma extends javax.swing.JFrame {
         btnPrikaziSveKupce = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstKupci = new javax.swing.JList<>();
-        btnOdaberiKupca = new javax.swing.JButton();
+        btnPostaviiKupca = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtRabat = new javax.swing.JTextField();
         txtUkupno = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        lblKupacPostavljen = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblKupac = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -179,13 +182,24 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(lstKupci);
 
-        btnOdaberiKupca.setText("Postavi kupca");
+        btnPostaviiKupca.setText("Postavi kupca");
+        btnPostaviiKupca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPostaviiKupcaActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Rabat:");
 
         txtRabat.setText("0");
 
         jLabel6.setText("kn");
+
+        lblKupacPostavljen.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel7.setText("Kupac:");
+
+        lblKupac.setText("[kupac nije postavljen]");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,7 +213,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPrikaziSveKupce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btnOdaberiKupca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnPostaviiKupca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -210,7 +224,8 @@ public class NoviRacunForma extends javax.swing.JFrame {
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtRabat, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblKupacPostavljen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -241,7 +256,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblBrojRacuna)))))
+                                .addComponent(lblBrojRacuna))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblKupac, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -261,7 +280,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(lblBrojRacuna))
-                        .addGap(18, 18, 18)))
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(lblKupac))
+                        .addGap(2, 2, 2)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnPrikaziSveProizvode)
@@ -290,9 +313,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
                                     .addComponent(txtUkupno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOdaberiKupca)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnPostaviiKupca)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblKupacPostavljen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
@@ -381,19 +406,26 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         try {
             obradaStavka.delete();
-            obradaRacun.update();
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
         
         ucitajProizvodeRacuna();
+        postaviCijenu();
     }//GEN-LAST:event_btnObrisiStavkuActionPerformed
+
+    private void btnPostaviiKupcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostaviiKupcaActionPerformed
+        
+        postaviKupcaNaRacun();
+        lblKupacPostavljen.setText("Kupac postavljen!");
+        lblKupac.setText(obradaRacun.getEntitet().getKupac().toString());
+    }//GEN-LAST:event_btnPostaviiKupcaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodajStavku;
     private javax.swing.JButton btnObrisiStavku;
-    private javax.swing.JButton btnOdaberiKupca;
+    private javax.swing.JButton btnPostaviiKupca;
     private javax.swing.JToggleButton btnPotvrdi;
     private javax.swing.JButton btnPrikaziSveKupce;
     private javax.swing.JButton btnPrikaziSveProizvode;
@@ -405,10 +437,13 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblBrojRacuna;
+    private javax.swing.JLabel lblKupac;
+    private javax.swing.JLabel lblKupacPostavljen;
     private javax.swing.JList<Kupac> lstKupci;
     private javax.swing.JList<Stavka> lstStavkeRacuna;
     private javax.swing.JList<Proizvod> lstSviProizvodi;
@@ -519,6 +554,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
         }
         
         return racunOK;
+    }
+
+    private void postaviKupcaNaRacun() {
+        var entitet = obradaRacun.getEntitet();
+        entitet.setKupac(lstKupci.getSelectedValue());
     }
 
 }
