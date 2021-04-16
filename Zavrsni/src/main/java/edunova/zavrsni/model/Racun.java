@@ -7,6 +7,7 @@ package edunova.zavrsni.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,10 +31,19 @@ public class Racun extends Entitet{
     private Kupac kupac;
     private BigDecimal rabat;
     private boolean storniran;
+    private String datumKreiranja;
     
     @OneToMany(mappedBy = "racun")
     private List<Stavka> stavke = new ArrayList<>();
 
+    public String getDatumKreiranja() {
+        return datumKreiranja;
+    }
+
+    public void setDatumKreiranja(String datumKreiranja) {
+        this.datumKreiranja = datumKreiranja;
+    }
+    
     public boolean isStorniran() {
         return storniran;
     }

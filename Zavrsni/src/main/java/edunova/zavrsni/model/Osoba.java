@@ -16,8 +16,8 @@ import javax.validation.constraints.NotNull;
 @MappedSuperclass
 public abstract class Osoba extends Entitet{
     
-    @NotNull(message = "Ime nije ok!")
-    @NotEmpty(message = "Ime nije ok!")
+    @NotNull(message = "Ime obavezno!")
+    @NotEmpty(message = "Ime obavezno!")
     private String ime;
     private String prezime;
     private String oib;

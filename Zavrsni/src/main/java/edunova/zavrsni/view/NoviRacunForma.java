@@ -16,8 +16,6 @@ import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -403,9 +401,14 @@ public class NoviRacunForma extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Prvo odaberite stavku");
             return;
         }
-
+        
+        Racun racun = obradaRacun.getEntitet();
+        List<Stavka> stavke = racun.getStavke();
+        stavke.remove(lstStavkeRacuna.getSelectedValue());
+        
         try {
             obradaStavka.delete();
+            obradaRacun.update();
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
@@ -493,7 +496,9 @@ public class NoviRacunForma extends javax.swing.JFrame {
     }
 
     private void postaviCijenu() {
-                
+        
+        // loše osmišljeno
+        
         List<Stavka> stavke = obradaRacun.getEntitet().getStavke();
         
         double cj = 0;
