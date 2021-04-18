@@ -292,8 +292,8 @@ public class ProizvodiForma extends javax.swing.JFrame {
             obrada.delete();
             pocisti();
             ucitaj();
-        } catch (ZavrsniRadException e) {
-            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Stavka se nalazi na računu - nemoguće obrisat!");
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 

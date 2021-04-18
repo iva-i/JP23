@@ -8,6 +8,7 @@ edunova\zavrsni\controller\Obrada.class
 edunova\zavrsni\controller\ObradaProizvod.class
 edunova\zavrsni\view\NoviRacunForma$6.class
 edunova\zavrsni\view\IzbornikPokusajTreci$5.class
+edunova\zavrsni\view\NoviRacunForma$11.class
 edunova\zavrsni\view\Autorizacija$2.class
 edunova\zavrsni\view\ProizvodiForma$7.class
 edunova\zavrsni\view\PromjeniLozinkuDjelatnikaForma.class
@@ -67,6 +68,7 @@ edunova\zavrsni\view\IzbornikPokusajTreci$1.class
 edunova\zavrsni\util\KreirajDjelatnika.class
 edunova\zavrsni\controller\ObradaKupac.class
 edunova\zavrsni\controller\ObradaStavka.class
+edunova\zavrsni\view\NoviRacunForma$12.class
 edunova\zavrsni\util\HibernateUtil.class
 edunova\zavrsni\view\RacuniForma$1.class
 edunova\zavrsni\view\KupciForma$5.class

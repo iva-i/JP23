@@ -59,6 +59,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
         setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
         
         txtUkupno.setEditable(false);
+        setDefaultCloseOperation(NoviRacunForma.DO_NOTHING_ON_CLOSE);
     }
 
     /**
@@ -99,6 +100,8 @@ public class NoviRacunForma extends javax.swing.JFrame {
         lblKupacPostavljen = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblKupac = new javax.swing.JLabel();
+        btnPovecaj = new javax.swing.JButton();
+        btnSmanji = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -202,6 +205,20 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         lblKupac.setText("[kupac nije postavljen]");
 
+        btnPovecaj.setText("+");
+        btnPovecaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPovecajActionPerformed(evt);
+            }
+        });
+
+        btnSmanji.setText("-");
+        btnSmanji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSmanjiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -233,12 +250,18 @@ public class NoviRacunForma extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnPrikaziSveProizvode, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnObrisiStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnDodajStavku)
-                                    .addComponent(jLabel3))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnObrisiStavku, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnDodajStavku)
+                                        .addComponent(jLabel3))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnSmanji)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnPovecaj)))
                                 .addGap(10, 10, 10))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(txtPronadiProizvod, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,8 +324,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(84, 84, 84)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnPovecaj)
+                                            .addComponent(btnSmanji))
+                                        .addGap(82, 82, 82)
                                         .addComponent(btnDodajStavku)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnObrisiStavku)
@@ -423,9 +449,21 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private void btnPostaviiKupcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostaviiKupcaActionPerformed
         
         postaviKupcaNaRacun();
-        lblKupacPostavljen.setText("Kupac postavljen!");
-        lblKupac.setText(obradaRacun.getEntitet().getKupac().toString());
     }//GEN-LAST:event_btnPostaviiKupcaActionPerformed
+
+    private void btnSmanjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSmanjiActionPerformed
+        
+        if(Integer.parseInt(txtKolicina.getText()) == 1){
+            JOptionPane.showMessageDialog(rootPane, "Količina je 1. Ne može se umanjiti.");
+        }else{
+            txtKolicina.setText(String.valueOf(Integer.parseInt(txtKolicina.getText())-1));
+        }
+    }//GEN-LAST:event_btnSmanjiActionPerformed
+
+    private void btnPovecajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPovecajActionPerformed
+        
+        txtKolicina.setText(String.valueOf(Integer.parseInt(txtKolicina.getText())+1));
+    }//GEN-LAST:event_btnPovecajActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -433,8 +471,10 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private javax.swing.JButton btnObrisiStavku;
     private javax.swing.JButton btnPostaviiKupca;
     private javax.swing.JToggleButton btnPotvrdi;
+    private javax.swing.JButton btnPovecaj;
     private javax.swing.JButton btnPrikaziSveKupce;
     private javax.swing.JButton btnPrikaziSveProizvode;
+    private javax.swing.JButton btnSmanji;
     private javax.swing.JButton btnTraziKupca;
     private javax.swing.JButton btnTraziProizvod;
     private javax.swing.JLabel jLabel1;
@@ -565,8 +605,20 @@ public class NoviRacunForma extends javax.swing.JFrame {
     }
 
     private void postaviKupcaNaRacun() {
-        var entitet = obradaRacun.getEntitet();
-        entitet.setKupac(lstKupci.getSelectedValue());
+                
+        try {
+            if (lstKupci.getSelectedValue().getSifra() == null) {
+                JOptionPane.showMessageDialog(rootPane, "Prvo odaberite kupca");
+            }else{
+                var entitet = obradaRacun.getEntitet();
+                entitet.setKupac(lstKupci.getSelectedValue());
+                lblKupacPostavljen.setText("Kupac postavljen!");
+                lblKupac.setText(obradaRacun.getEntitet().getKupac().toString());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite kupca");
+        }
+        
     }
 
     private void postaviDatum() {

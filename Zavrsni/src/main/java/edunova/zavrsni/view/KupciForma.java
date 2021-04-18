@@ -243,8 +243,8 @@ public class KupciForma extends javax.swing.JFrame {
             obrada.delete();
             pocisti();
             ucitaj();
-        } catch (ZavrsniRadException e) {
-            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Kupac se nalazi na računu - nemoguće obrisati!");
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
