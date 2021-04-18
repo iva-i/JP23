@@ -6,6 +6,13 @@
 package edunova.zavrsni.view;
 
 import edunova.zavrsni.controller.ObradaDjelatnik;
+import edunova.zavrsni.model.Djelatnik;
+import edunova.zavrsni.util.ZavrsniRadException;
+import java.awt.event.KeyEvent;
+import java.util.Arrays;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -13,15 +20,16 @@ import edunova.zavrsni.controller.ObradaDjelatnik;
  */
 public class DjelatniciForma extends javax.swing.JFrame {
 
-    private ObradaDjelatnik obradaDjelatnik;
+    private ObradaDjelatnik obrada;
     
     /**
      * Creates new form DjelatniciForma
      */
     public DjelatniciForma() {
         initComponents();
-        obradaDjelatnik = new ObradaDjelatnik();
+        obrada = new ObradaDjelatnik();
         setTitle(Aplikacija.NASLOV_APP + " | Djelatnik: " + Aplikacija.djelatnik.getIme());
+        ucitaj();
     }
 
     /**
@@ -50,9 +58,18 @@ public class DjelatniciForma extends javax.swing.JFrame {
         pswSifra = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         pswSifraPotvrda = new javax.swing.JPasswordField();
+        btnOcistiPolja = new javax.swing.JButton();
+        btnDodaj = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        btnObrisi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        lstDjelatnici.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstDjelatniciValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstDjelatnici);
 
         jLabel1.setText("Popis djelatnika:");
@@ -65,7 +82,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Prezime kupca:");
+        jLabel3.setText("Prezime djelatnika:");
 
         txtPrezimeDjelatnika.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -97,9 +114,43 @@ public class DjelatniciForma extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Šifra djelatnika:");
+        jLabel7.setText("Lozinka djelatnika:");
 
-        jLabel8.setText("Potvrdi šifru djelatnika:");
+        pswSifra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pswSifraKeyReleased(evt);
+            }
+        });
+
+        jLabel8.setText("Potvrdi lozinku djelatnika:");
+
+        btnOcistiPolja.setText("Očisti polja");
+        btnOcistiPolja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOcistiPoljaActionPerformed(evt);
+            }
+        });
+
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setText("Obriši");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,13 +163,14 @@ public class DjelatniciForma extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImeDjelatika, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                            .addComponent(txtImeDjelatika, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                             .addComponent(txtPrezimeDjelatnika, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtOIB, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtJMBAG, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtStrucnaSprema, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(pswSifra)
                             .addComponent(pswSifraPotvrda)
+                            .addComponent(btnOcistiPolja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -128,9 +180,15 @@ public class DjelatniciForma extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnPromjeni, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
                     .addComponent(jLabel1))
-                .addGap(58, 58, 58))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,42 +225,169 @@ public class DjelatniciForma extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pswSifraPotvrda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 82, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnOcistiPolja)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDodaj)
+                            .addComponent(btnPromjeni)
+                            .addComponent(btnObrisi))
+                        .addGap(0, 19, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtImeDjelatikaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtImeDjelatikaKeyReleased
-//        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-//            txtPrezimeDjelatnika.requestFocus();
-//        }
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtPrezimeDjelatnika.requestFocus();
+        }
     }//GEN-LAST:event_txtImeDjelatikaKeyReleased
 
     private void txtPrezimeDjelatnikaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrezimeDjelatnikaKeyReleased
-//        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-//            txtOIB.requestFocus();
-//        }
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtOIB.requestFocus();
+        }
     }//GEN-LAST:event_txtPrezimeDjelatnikaKeyReleased
 
     private void txtOIBKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOIBKeyReleased
-//        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-//            txtNazivFirme.requestFocus();
-//        }
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtJMBAG.requestFocus();
+        }
     }//GEN-LAST:event_txtOIBKeyReleased
 
     private void txtJMBAGKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJMBAGKeyReleased
-        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            txtStrucnaSprema.requestFocus();
+        }
     }//GEN-LAST:event_txtJMBAGKeyReleased
 
     private void txtStrucnaSpremaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStrucnaSpremaKeyReleased
-        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            pswSifra.requestFocus();
+        }
     }//GEN-LAST:event_txtStrucnaSpremaKeyReleased
+
+    private void btnOcistiPoljaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcistiPoljaActionPerformed
+        pocisti();
+    }//GEN-LAST:event_btnOcistiPoljaActionPerformed
+
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+
+        obrada.setEntitet(new Djelatnik());
+        postaviVrijednostiNaEntitet();
+
+        try {
+            obrada.create();
+            pocisti();
+            ucitaj();
+        } catch (ZavrsniRadException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+
+        if (obrada.getEntitet() == null || obrada.getEntitet().getSifra() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite djelatnika");
+            return;
+        }
+
+        postaviVrijednostiNaEntitet();
+
+        try {
+            obrada.update();
+            pocisti();
+            ucitaj();
+        } catch (ZavrsniRadException e) {
+            JOptionPane.showMessageDialog(rootPane, e.getPoruka());
+        }
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+
+        if (obrada.getEntitet() == null || obrada.getEntitet().getSifra() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Prvo odaberite djelatnika");
+            return;
+        }
+
+        try {
+            obrada.delete();
+            pocisti();
+            ucitaj();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Stavka se nalazi na računu - nemoguće obrisat!");
+        }
+    }//GEN-LAST:event_btnObrisiActionPerformed
+
+    private void pswSifraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswSifraKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            pswSifraPotvrda.requestFocus();
+        }
+    }//GEN-LAST:event_pswSifraKeyReleased
+
+    private void lstDjelatniciValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDjelatniciValueChanged
+        
+        if (evt.getValueIsAdjusting()) {
+            return;
+        }
+       
+        if (lstDjelatnici.getSelectedValue() == null) {
+            pocisti();
+            lstDjelatnici.clearSelection();
+            return;
+        }
+        
+        obrada.setEntitet(lstDjelatnici.getSelectedValue());
+
+        txtImeDjelatika.setText(obrada.getEntitet().getIme());
+        
+        if (obrada.getEntitet().getPrezime() != null) {
+            txtPrezimeDjelatnika.setText(obrada.getEntitet().getPrezime().toString());
+        } else {
+            txtPrezimeDjelatnika.setText("");
+        }
+        
+        if (obrada.getEntitet().getOib() != null) {
+            txtOIB.setText(obrada.getEntitet().getOib().toString());
+        } else {
+            txtOIB.setText("");
+        }
+        
+        if (obrada.getEntitet().getJmbag()!= null) {
+            txtJMBAG.setText(obrada.getEntitet().getJmbag().toString());
+        } else {
+            txtJMBAG.setText("");
+        }
+        
+        if (obrada.getEntitet().getStrucnaSprema() != null) {
+            txtStrucnaSprema.setText(obrada.getEntitet().getStrucnaSprema().toString());
+        } else {
+            txtStrucnaSprema.setText("");
+        }
+        
+        try {
+            pswSifra.setText(obrada.getEntitet().getSifraDjelatnika().toString());
+        } catch (Exception e) {
+            pswSifra.setText("");
+        }
+        
+        try {
+            pswSifraPotvrda.setText(obrada.getEntitet().getSifraDjelatnika().toString());
+        } catch (Exception e) {
+            pswSifraPotvrda.setText("");
+        }
+    }//GEN-LAST:event_lstDjelatniciValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnOcistiPolja;
+    private javax.swing.JButton btnPromjeni;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -212,7 +397,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> lstDjelatnici;
+    private javax.swing.JList<Djelatnik> lstDjelatnici;
     private javax.swing.JPasswordField pswSifra;
     private javax.swing.JPasswordField pswSifraPotvrda;
     private javax.swing.JTextField txtImeDjelatika;
@@ -221,4 +406,65 @@ public class DjelatniciForma extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrezimeDjelatnika;
     private javax.swing.JTextField txtStrucnaSprema;
     // End of variables declaration//GEN-END:variables
+
+    private void ucitaj() {
+
+        DefaultListModel<Djelatnik> m = new DefaultListModel<>();
+        m.addAll(obrada.getPodaci());
+        lstDjelatnici.setModel(m);
+    }
+
+    private void pocisti() {
+        
+        txtImeDjelatika.setText("");
+        txtPrezimeDjelatnika.setText("");
+        txtJMBAG.setText("");
+        txtOIB.setText("");
+        txtStrucnaSprema.setText("");
+        pswSifra.setText("");
+        pswSifraPotvrda.setText("");
+    }
+
+    private void postaviVrijednostiNaEntitet() {
+        
+        var entitet = obrada.getEntitet();
+        
+        entitet.setIme(txtImeDjelatika.getText());
+        
+        try {
+            entitet.setPrezime(txtPrezimeDjelatnika.getText());
+        } catch (Exception e) {
+            entitet.setPrezime("");
+        }
+        
+        try {
+            entitet.setOib(txtOIB.getText());
+        } catch (Exception e) {
+            entitet.setOib("");
+        }
+        
+        try {
+            entitet.setJmbag(txtJMBAG.getText());
+        } catch (Exception e) {
+            entitet.setJmbag("");
+        }
+        
+        try {
+            entitet.setStrucnaSprema(txtStrucnaSprema.getText());
+        } catch (Exception e) {
+            entitet.setStrucnaSprema("");
+        }
+        
+        if(Arrays.equals(pswSifra.getPassword(), pswSifraPotvrda.getPassword())){
+            try {
+                char[] pass = pswSifra.getPassword();
+                String s = new String(pass);
+                obrada.getEntitet().setSifraDjelatnika(BCrypt.hashpw(s, BCrypt.gensalt()));
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Problem s lozinkom!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nova lozinka se ne podudara!");
+        }
+    }
 }

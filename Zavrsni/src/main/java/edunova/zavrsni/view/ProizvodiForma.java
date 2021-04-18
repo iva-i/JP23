@@ -349,9 +349,7 @@ public class ProizvodiForma extends javax.swing.JFrame {
     private void ucitaj() {
         
         DefaultListModel<Proizvod> m = new DefaultListModel<>();
-
         m.addAll(obrada.getPodaci());
-
         lstProizvodi.setModel(m);
         
     }

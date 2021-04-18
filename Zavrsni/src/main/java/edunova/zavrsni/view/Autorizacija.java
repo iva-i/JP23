@@ -54,7 +54,7 @@ public class Autorizacija extends javax.swing.JFrame {
             }
         });
 
-        txtSifraDjelatnika.setText("Šifra djelatnika:");
+        txtSifraDjelatnika.setText("Lozinka:");
 
         pswSifraDjelatnika.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

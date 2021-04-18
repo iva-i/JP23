@@ -70,7 +70,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="txtSifraDjelatnika">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x160;ifra djelatnika:"/>
+        <Property name="text" type="java.lang.String" value="Lozinka:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pswSifraDjelatnika">

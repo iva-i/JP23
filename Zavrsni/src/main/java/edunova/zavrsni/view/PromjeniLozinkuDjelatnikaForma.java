@@ -195,7 +195,6 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         try {
             Aplikacija.djelatnik.setSifraDjelatnika(BCrypt.hashpw(s, BCrypt.gensalt()));
         } catch (Exception e) {
-            e.printStackTrace();
             obradiGresku(pswNovaLozinka, "Greška - nova lozinka");
         } 
         
