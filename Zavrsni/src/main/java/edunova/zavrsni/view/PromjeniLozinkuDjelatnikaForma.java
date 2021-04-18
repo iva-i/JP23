@@ -9,6 +9,7 @@ import edunova.zavrsni.controller.ObradaDjelatnik;
 import edunova.zavrsni.model.Djelatnik;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import org.mindrot.jbcrypt.BCrypt;
@@ -69,12 +70,6 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
 
         jLabel5.setText("Potvrdi novu lozinku:");
 
-        pswNovaLozinka.setText("jPasswordField1");
-
-        pswNovaLozinkaPotvrda.setText("jPasswordField1");
-
-        pswStaraLozinka.setText("jPasswordField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,6 +127,8 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
+        
+        JOptionPane.showMessageDialog(rootPane, "Lozinka promjenjena!");
     }//GEN-LAST:event_btnPromjeniLozinkuActionPerformed
 
     
@@ -148,7 +145,7 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
     private javax.swing.JPasswordField pswStaraLozinka;
     // End of variables declaration//GEN-END:variables
 
-    private void promjeniLozinku(){
+    private void provjeri(){
         
         try{
             if(pswStaraLozinka.toString().isEmpty()){
@@ -166,14 +163,14 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
                 return;
             }
             
-//            if(pswNovaLozinka.toString() != pswNovaLozinkaPotvrda.toString()){
-//                obradiGresku(pswNovaLozinka, "Nova lozinka se ne podudara!");
-//                return;
-//            }
+            if(!Arrays.equals(pswNovaLozinka.getPassword(), pswNovaLozinkaPotvrda.getPassword())){
+                obradiGresku(pswNovaLozinka, "Nova lozinka se ne podudara!");
+                return;
+            }
             
-            Djelatnik o = obrada.autoriziraj(Aplikacija.djelatnik.getIme(), pswStaraLozinka.toString().toCharArray());
+            Djelatnik o = obrada.autoriziraj(Aplikacija.djelatnik.getIme(), pswStaraLozinka.getPassword());
 
-            if(o==null){
+            if(o == null){
                 obradiGresku(pswStaraLozinka, "Ime i lozinka ne odgovaraju");
                 return;
             } 
@@ -190,10 +187,13 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
     
     private void postaviVrijednostiNaEntitet() {
         
-        promjeniLozinku();
+        provjeri();
+        
+        char[] pass = pswNovaLozinka.getPassword();
+        String s = new String(pass);
            
         try {
-            Aplikacija.djelatnik.setSifraDjelatnika(BCrypt.hashpw(pswNovaLozinka.toString(), BCrypt.gensalt()));
+            Aplikacija.djelatnik.setSifraDjelatnika(BCrypt.hashpw(s, BCrypt.gensalt()));
         } catch (Exception e) {
             e.printStackTrace();
             obradiGresku(pswNovaLozinka, "Greška - nova lozinka");
