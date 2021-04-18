@@ -129,6 +129,7 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(rootPane, "Lozinka promjenjena!");
+        dispose();
     }//GEN-LAST:event_btnPromjeniLozinkuActionPerformed
 
     

@@ -26,11 +26,13 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {
         kontrolaOIB();
+        kontrolaIme();
     }
 
     @Override
     protected void kontrolaUpdate() throws ZavrsniRadException {
         kontrolaOIB();
+        kontrolaIme();
     }
 
     @Override
@@ -75,6 +77,23 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T> {
         }
         return kontrolni == Integer.parseInt(oib.substring(10));
 
+    }
+
+    private void kontrolaIme() throws ZavrsniRadException {
+        if(!imeValjano(entitet.getIme())){
+            throw new ZavrsniRadException("Obavezno ime kupca!");
+        }
+    }
+
+    private boolean imeValjano(String ime) {
+        
+        boolean valjano = true;
+        
+        if(ime.isBlank() || ime.isEmpty()){
+            valjano = false;
+        }
+        
+        return valjano;
     }
 
     

@@ -7,6 +7,7 @@ package edunova.zavrsni.controller;
 
 import edunova.zavrsni.model.Proizvod;
 import edunova.zavrsni.util.ZavrsniRadException;
+import java.math.BigDecimal;
 import java.util.List;
 import org.hibernate.CacheMode;
 
@@ -35,17 +36,35 @@ public class ObradaProizvod extends Obrada<Proizvod>{
 
     @Override
     protected void kontrolaCreate() throws ZavrsniRadException {
-        
+        kontrolaCijena();
     }
 
     @Override
     protected void kontrolaUpdate() throws ZavrsniRadException {
-        
+        kontrolaCijena();
     }
 
     @Override
     protected void kontrolaDelete() throws ZavrsniRadException {
        
+    }
+    
+    private void kontrolaCijena() throws ZavrsniRadException{
+        
+        if(!cijenaValjana(entitet.getCijena())){
+            throw new ZavrsniRadException("Cijena ne može biti <= 0!");
+        }
+    }
+    
+    private boolean cijenaValjana(BigDecimal cijena){
+        
+        boolean valjano = true;
+        
+        if(cijena.doubleValue() <= 0){
+            valjano = false;
+        }
+        
+        return valjano;
     }
     
 }
