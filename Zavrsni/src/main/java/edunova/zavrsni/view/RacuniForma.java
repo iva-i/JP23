@@ -203,7 +203,7 @@ public class RacuniForma extends javax.swing.JFrame {
         prikaziKupca();
         prikaziDjelatnika();
         postaviStorniran();
-        //postaviDatum();
+        postaviDatum();
     }//GEN-LAST:event_btnPrikaziDetaljeRacunaActionPerformed
 
     private void cbStorniranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbStorniranActionPerformed
@@ -308,13 +308,9 @@ public class RacuniForma extends javax.swing.JFrame {
         }
     }
 
-//    private void postaviDatum() {
-//        
-//        if(lstPopisRacuna.getSelectedValue().getDatumKreiranja().isEmpty() || lstPopisRacuna.getSelectedValue().getDatumKreiranja() == null
-//                || lstPopisRacuna.getSelectedValue().getDatumKreiranja().isBlank()){
-//            lblDatumKreiranja.setText("[datum nije unesen]");
-//        }else{
-//            lblDatumKreiranja.setText(lstPopisRacuna.getSelectedValue().getDatumKreiranja());
-//        }
-//    }
+    private void postaviDatum() {
+    
+    lblDatumKreiranja.setText(lstPopisRacuna.getSelectedValue().getDatumKreiranja());
+        
+    }
 }

@@ -15,6 +15,8 @@ import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.model.Stavka;
 import edunova.zavrsni.util.ZavrsniRadException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -41,6 +43,7 @@ public class NoviRacunForma extends javax.swing.JFrame {
         obradaRacun.setEntitet(racun);
         
         postaviDjelatnikaNaRacun();
+        postaviDatum();
         
         try {
             obradaRacun.create();
@@ -564,6 +567,15 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private void postaviKupcaNaRacun() {
         var entitet = obradaRacun.getEntitet();
         entitet.setKupac(lstKupci.getSelectedValue());
+    }
+
+    private void postaviDatum() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
+        Date date = new Date();
+
+        String frmtdDate = dateFormat.format(date);
+        
+        obradaRacun.getEntitet().setDatumKreiranja(frmtdDate);
     }
 
 }
