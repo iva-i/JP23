@@ -8,9 +8,12 @@ package edunova.zavrsni.view;
 import edunova.zavrsni.controller.ObradaRacun;
 import edunova.zavrsni.model.Racun;
 import edunova.zavrsni.util.ZavrsniRadException;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,7 +73,6 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         lblProizvodi.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
@@ -78,6 +80,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblProizvodi.setText("→ Proizvodi");
         lblProizvodi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblProizvodi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblProizvodiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblProizvodiMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblProizvodiMouseReleased(evt);
             }
@@ -88,6 +96,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblKupci.setText("→ Kupci");
         lblKupci.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblKupci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblKupciMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblKupciMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblKupciMouseReleased(evt);
             }
@@ -95,6 +109,14 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
 
         btnKreirajNoviRacun.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         btnKreirajNoviRacun.setText("Kreiraj novi račun");
+        btnKreirajNoviRacun.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnKreirajNoviRacunMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnKreirajNoviRacunMouseExited(evt);
+            }
+        });
         btnKreirajNoviRacun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnKreirajNoviRacunActionPerformed(evt);
@@ -106,6 +128,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblRacuni.setText("→ Računi");
         lblRacuni.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblRacuni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblRacuniMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblRacuniMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblRacuniMouseReleased(evt);
             }
@@ -116,6 +144,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblONama.setText("O nama ←");
         lblONama.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblONama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblONamaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblONamaMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblONamaMouseReleased(evt);
             }
@@ -126,6 +160,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblPromjeniTrenutnogDjelatnika.setText("Promjeni trenutnog djelatnika ←");
         lblPromjeniTrenutnogDjelatnika.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblPromjeniTrenutnogDjelatnika.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblPromjeniTrenutnogDjelatnikaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblPromjeniTrenutnogDjelatnikaMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblPromjeniTrenutnogDjelatnikaMouseReleased(evt);
             }
@@ -141,6 +181,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblDjelatnici.setText("→ Djelatnici");
         lblDjelatnici.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblDjelatnici.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblDjelatniciMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblDjelatniciMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblDjelatniciMouseReleased(evt);
             }
@@ -151,6 +197,12 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         lblPromjeniLozinku.setText("Promjeni lozinku ←");
         lblPromjeniLozinku.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblPromjeniLozinku.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblPromjeniLozinkuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblPromjeniLozinkuMouseExited(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 lblPromjeniLozinkuMouseReleased(evt);
             }
@@ -163,53 +215,59 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnKreirajNoviRacun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblDjelatnici, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblRacuni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                                .addComponent(lblKupci, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblProizvodi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDjelatnici, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPromjeniTrenutnogDjelatnika)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblONama, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPromjeniLozinku))))))
-                .addGap(30, 30, 30))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(lblONama))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblPromjeniLozinku)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPromjeniTrenutnogDjelatnika)))
+                        .addGap(10, 10, 10)))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProizvodi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPromjeniTrenutnogDjelatnika, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPromjeniLozinku))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblONama, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addComponent(lblDjelatnici, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblPromjeniLozinku, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(lblONama, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                        .addComponent(lblKupci, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(lblRacuni, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(lblDjelatnici, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnKreirajNoviRacun)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,6 +314,102 @@ public class IzbornikPokusajTreci extends javax.swing.JFrame {
     private void lblPromjeniLozinkuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniLozinkuMouseReleased
         new PromjeniLozinkuDjelatnikaForma().setVisible(true);
     }//GEN-LAST:event_lblPromjeniLozinkuMouseReleased
+
+    private void lblProizvodiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProizvodiMouseEntered
+        JLabel label= lblProizvodi;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC+Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblProizvodiMouseEntered
+
+    private void lblProizvodiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProizvodiMouseExited
+        JLabel label= lblProizvodi;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblProizvodiMouseExited
+
+    private void lblKupciMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKupciMouseEntered
+        JLabel label= lblKupci;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC+Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblKupciMouseEntered
+
+    private void lblKupciMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblKupciMouseExited
+        JLabel label= lblKupci;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblKupciMouseExited
+
+    private void lblRacuniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRacuniMouseEntered
+        JLabel label= lblRacuni;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC+Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblRacuniMouseEntered
+
+    private void lblRacuniMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRacuniMouseExited
+        JLabel label= lblRacuni;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblRacuniMouseExited
+
+    private void lblDjelatniciMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDjelatniciMouseEntered
+        JLabel label= lblDjelatnici;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC+Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblDjelatniciMouseEntered
+
+    private void lblDjelatniciMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDjelatniciMouseExited
+        JLabel label= lblDjelatnici;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.BOLD,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblDjelatniciMouseExited
+
+    private void lblPromjeniTrenutnogDjelatnikaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniTrenutnogDjelatnikaMouseEntered
+        JLabel label= lblPromjeniTrenutnogDjelatnika;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblPromjeniTrenutnogDjelatnikaMouseEntered
+
+    private void lblPromjeniTrenutnogDjelatnikaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniTrenutnogDjelatnikaMouseExited
+        JLabel label= lblPromjeniTrenutnogDjelatnika;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.PLAIN,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblPromjeniTrenutnogDjelatnikaMouseExited
+
+    private void lblPromjeniLozinkuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniLozinkuMouseEntered
+        JLabel label= lblPromjeniLozinku;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblPromjeniLozinkuMouseEntered
+
+    private void lblPromjeniLozinkuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPromjeniLozinkuMouseExited
+        JLabel label= lblPromjeniLozinku;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.PLAIN,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblPromjeniLozinkuMouseExited
+
+    private void lblONamaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblONamaMouseEntered
+        JLabel label= lblONama;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.ITALIC,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblONamaMouseEntered
+
+    private void lblONamaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblONamaMouseExited
+        JLabel label= lblONama;
+        Font newLabelFont = new Font(label.getFont().getName(),Font.PLAIN,label.getFont().getSize());
+        label.setFont(newLabelFont);
+    }//GEN-LAST:event_lblONamaMouseExited
+
+    private void btnKreirajNoviRacunMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKreirajNoviRacunMouseEntered
+        JButton button = btnKreirajNoviRacun;
+        Font newButtonFont = new Font(button.getFont().getName(),Font.BOLD + Font.ITALIC, button.getFont().getSize());
+        button.setFont(newButtonFont);
+    }//GEN-LAST:event_btnKreirajNoviRacunMouseEntered
+
+    private void btnKreirajNoviRacunMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKreirajNoviRacunMouseExited
+        JButton button = btnKreirajNoviRacun;
+        Font newButtonFont = new Font(button.getFont().getName(),Font.BOLD, button.getFont().getSize());
+        button.setFont(newButtonFont);
+    }//GEN-LAST:event_btnKreirajNoviRacunMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

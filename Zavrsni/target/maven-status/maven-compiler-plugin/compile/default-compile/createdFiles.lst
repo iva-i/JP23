@@ -1,7 +1,6 @@
 edunova\zavrsni\view\ProizvodiForma$3.class
 edunova\zavrsni\view\IzbornikPokusajTreci$2.class
 edunova\zavrsni\controller\Obrada.class
-edunova\zavrsni\view\RacuniForma$3.class
 edunova\zavrsni\view\DjelatniciForma$7.class
 edunova\zavrsni\view\NoviRacunForma$6.class
 edunova\zavrsni\view\IzbornikPokusajTreci$5.class
@@ -46,6 +45,7 @@ edunova\zavrsni\view\Izbornik$5.class
 edunova\zavrsni\view\KupciForma$1.class
 edunova\zavrsni\controller\ObradaOsoba.class
 edunova\zavrsni\model\Proizvod.class
+edunova\zavrsni\view\IzbornikPokusajTreci$9.class
 edunova\zavrsni\controller\ObradaProizvod.class
 edunova\zavrsni\view\NoviRacunForma$11.class
 edunova\zavrsni\view\ProizvodiForma$7.class
@@ -56,6 +56,7 @@ edunova\zavrsni\view\NoviRacunForma$2.class
 edunova\zavrsni\view\DjelatniciForma$3.class
 edunova\zavrsni\model\Racun.class
 edunova\zavrsni\view\IzbornikPokusajTreci$3.class
+edunova\zavrsni\view\NoviRacunForma$Vrijeme.class
 edunova\zavrsni\view\RacuniForma.class
 edunova\zavrsni\view\IzbornikPokusajTreci$6.class
 edunova\zavrsni\view\ProizvodiForma$4.class

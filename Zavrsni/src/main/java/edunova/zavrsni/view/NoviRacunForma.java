@@ -60,6 +60,24 @@ public class NoviRacunForma extends javax.swing.JFrame {
         
         txtUkupno.setEditable(false);
         setDefaultCloseOperation(NoviRacunForma.DO_NOTHING_ON_CLOSE);
+        new Vrijeme().start();
+    }
+    
+        private class Vrijeme extends Thread{
+        
+        private SimpleDateFormat df = new SimpleDateFormat("dd. MMMM YYYY. HH:mm:ss");
+
+        @Override
+        public void run() {
+            while (true) {                
+                lblVrijeme.setText(df.format(new Date()));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                }
+            }
+        }
+        
     }
 
     /**
@@ -103,6 +121,8 @@ public class NoviRacunForma extends javax.swing.JFrame {
         btnSmanji = new javax.swing.JButton();
         btnPotvrdi = new javax.swing.JButton();
         lblSlika = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        lblVrijeme = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setType(java.awt.Window.Type.UTILITY);
@@ -252,6 +272,11 @@ public class NoviRacunForma extends javax.swing.JFrame {
 
         lblSlika.setIcon(new javax.swing.ImageIcon("D:\\Users\\Skec\\Desktop\\shopping-cart-loaded.png")); // NOI18N
 
+        jToolBar1.setRollover(true);
+
+        lblVrijeme.setText("vrijeme");
+        jToolBar1.add(lblVrijeme);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -326,27 +351,25 @@ public class NoviRacunForma extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(18, Short.MAX_VALUE))))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(txtPronadiKupca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPronadiProizvod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnTraziProizvod)
-                                .addComponent(jLabel4)
-                                .addComponent(lblBrojRacuna)
-                                .addComponent(jLabel7)
-                                .addComponent(lblKupac))
-                            .addComponent(btnTraziKupca))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(txtPronadiKupca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPronadiProizvod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnTraziProizvod)
+                            .addComponent(jLabel4)
+                            .addComponent(lblBrojRacuna)
+                            .addComponent(jLabel7)
+                            .addComponent(lblKupac))
+                        .addComponent(btnTraziKupca)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -524,10 +547,12 @@ public class NoviRacunForma extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblBrojRacuna;
     private javax.swing.JLabel lblKupac;
     private javax.swing.JLabel lblKupacPostavljen;
     private javax.swing.JLabel lblSlika;
+    private javax.swing.JLabel lblVrijeme;
     private javax.swing.JList<Kupac> lstKupci;
     private javax.swing.JList<Stavka> lstStavkeRacuna;
     private javax.swing.JList<Proizvod> lstSviProizvodi;
