@@ -316,8 +316,20 @@ public class RacuniForma extends javax.swing.JFrame {
         }
         
         String uk = String.format("%.2f",cj);
+        StringBuilder sb = new StringBuilder(uk);
+        char[] ukChar = uk.toCharArray();
+        int index = 0;
         
-        txtUkupno.setText(uk);
+        for(int i = 0; i<ukChar.length; i++){
+             char c = ukChar[i];             
+             if(c == ','){
+                 index = i;
+             }           
+        }      
+        
+        sb.setCharAt(index, '.');
+        
+        txtUkupno.setText(sb.toString());
     }
 
     private void prikaziRabat() {        

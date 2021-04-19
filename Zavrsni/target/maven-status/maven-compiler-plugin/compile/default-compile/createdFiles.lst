@@ -66,6 +66,7 @@ edunova\zavrsni\model\Osoba.class
 edunova\zavrsni\view\ProizvodiForma$1.class
 edunova\zavrsni\util\Test.class
 edunova\zavrsni\view\DjelatniciForma$11.class
+edunova\zavrsni\view\NoviRacunForma$13.class
 edunova\zavrsni\view\Autorizacija.class
 edunova\zavrsni\util\ZavrsniRadException.class
 edunova\zavrsni\rad\Start.class

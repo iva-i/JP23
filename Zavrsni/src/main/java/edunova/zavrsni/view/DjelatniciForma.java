@@ -350,6 +350,8 @@ public class DjelatniciForma extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Stavka se nalazi na računu - nemoguće obrisat!");
         }
+        pswSifra.setEditable(true);
+        pswSifraPotvrda.setEditable(true);
     }//GEN-LAST:event_btnObrisiActionPerformed
 
     private void pswSifraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswSifraKeyReleased

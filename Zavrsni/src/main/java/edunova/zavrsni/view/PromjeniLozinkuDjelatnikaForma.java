@@ -81,10 +81,20 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         jLabel5.setText("Potvrdi novu lozinku:");
 
         pswNovaLozinka.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pswNovaLozinka.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pswNovaLozinkaKeyReleased(evt);
+            }
+        });
 
         pswNovaLozinkaPotvrda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         pswStaraLozinka.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pswStaraLozinka.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pswStaraLozinkaKeyReleased(evt);
+            }
+        });
 
         lblSlika.setIcon(new javax.swing.ImageIcon("D:\\Users\\Skec\\Desktop\\store-icon2.jpg")); // NOI18N
 
@@ -156,6 +166,18 @@ public class PromjeniLozinkuDjelatnikaForma extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Lozinka promjenjena!");
         dispose();
     }//GEN-LAST:event_btnPromjeniLozinkuActionPerformed
+
+    private void pswStaraLozinkaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswStaraLozinkaKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           pswNovaLozinka.requestFocus();
+        }
+    }//GEN-LAST:event_pswStaraLozinkaKeyReleased
+
+    private void pswNovaLozinkaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswNovaLozinkaKeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+           pswNovaLozinkaPotvrda.requestFocus();
+        }
+    }//GEN-LAST:event_pswNovaLozinkaKeyReleased
 
     
 

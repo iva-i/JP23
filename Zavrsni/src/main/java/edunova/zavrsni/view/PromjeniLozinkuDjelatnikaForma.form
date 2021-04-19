@@ -143,6 +143,9 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pswNovaLozinkaKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pswNovaLozinkaPotvrda">
       <Properties>
@@ -157,6 +160,9 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pswStaraLozinkaKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSlika">
       <Properties>
