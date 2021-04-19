@@ -64,6 +64,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
         btnObrisi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setType(java.awt.Window.Type.UTILITY);
 
         lstDjelatnici.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lstDjelatnici.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
