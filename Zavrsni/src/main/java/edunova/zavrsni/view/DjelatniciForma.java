@@ -65,6 +65,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        lstDjelatnici.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lstDjelatnici.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstDjelatniciValueChanged(evt);
@@ -72,58 +73,75 @@ public class DjelatniciForma extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lstDjelatnici);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Popis djelatnika:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Ime djelatnika:");
 
+        txtImeDjelatika.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtImeDjelatika.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtImeDjelatikaKeyReleased(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Prezime djelatnika:");
 
+        txtPrezimeDjelatnika.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPrezimeDjelatnika.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPrezimeDjelatnikaKeyReleased(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("OIB:");
 
+        txtOIB.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtOIB.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtOIBKeyReleased(evt);
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("JMBAG:");
 
+        txtJMBAG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtJMBAG.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtJMBAGKeyReleased(evt);
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Stručna sprema:");
 
+        txtStrucnaSprema.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtStrucnaSprema.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtStrucnaSpremaKeyReleased(evt);
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Lozinka djelatnika:");
 
+        pswSifra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         pswSifra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 pswSifraKeyReleased(evt);
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Potvrdi lozinku djelatnika:");
 
+        pswSifraPotvrda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        btnOcistiPolja.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnOcistiPolja.setText("Očisti polja");
         btnOcistiPolja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +149,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
             }
         });
 
+        btnDodaj.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +157,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPromjeni.setText("Promjeni");
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +165,7 @@ public class DjelatniciForma extends javax.swing.JFrame {
             }
         });
 
+        btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnObrisi.setText("Obriši");
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,14 +184,14 @@ public class DjelatniciForma extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImeDjelatika, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(txtImeDjelatika, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                             .addComponent(txtPrezimeDjelatnika, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtOIB, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtJMBAG, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtStrucnaSprema, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(pswSifra)
-                            .addComponent(pswSifraPotvrda)
                             .addComponent(btnOcistiPolja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(pswSifraPotvrda)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -182,13 +203,13 @@ public class DjelatniciForma extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPromjeni, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
+                                .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel1))
-                .addGap(57, 57, 57))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,14 +246,13 @@ public class DjelatniciForma extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pswSifraPotvrda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnOcistiPolja)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnOcistiPolja)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDodaj)
                             .addComponent(btnPromjeni)
-                            .addComponent(btnObrisi))
-                        .addGap(0, 19, Short.MAX_VALUE))
+                            .addComponent(btnObrisi)))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
@@ -273,6 +293,8 @@ public class DjelatniciForma extends javax.swing.JFrame {
 
     private void btnOcistiPoljaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOcistiPoljaActionPerformed
         pocisti();
+        pswSifra.setEditable(true);
+        pswSifraPotvrda.setEditable(true);
     }//GEN-LAST:event_btnOcistiPoljaActionPerformed
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
@@ -287,6 +309,9 @@ public class DjelatniciForma extends javax.swing.JFrame {
         } catch (ZavrsniRadException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getPoruka());
         }
+        
+        pswSifra.setEditable(true);
+        pswSifraPotvrda.setEditable(true);
     }//GEN-LAST:event_btnDodajActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
@@ -305,6 +330,9 @@ public class DjelatniciForma extends javax.swing.JFrame {
         } catch (ZavrsniRadException e) {
             JOptionPane.showMessageDialog(rootPane, e.getPoruka());
         }
+        
+        pswSifra.setEditable(true);
+        pswSifraPotvrda.setEditable(true);
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
@@ -369,17 +397,8 @@ public class DjelatniciForma extends javax.swing.JFrame {
             txtStrucnaSprema.setText("");
         }
         
-        try {
-            pswSifra.setText(obrada.getEntitet().getSifraDjelatnika().toString());
-        } catch (Exception e) {
-            pswSifra.setText("");
-        }
-        
-        try {
-            pswSifraPotvrda.setText(obrada.getEntitet().getSifraDjelatnika().toString());
-        } catch (Exception e) {
-            pswSifraPotvrda.setText("");
-        }
+        pswSifra.setEditable(false);
+        pswSifraPotvrda.setEditable(false);
     }//GEN-LAST:event_lstDjelatniciValueChanged
 
 
